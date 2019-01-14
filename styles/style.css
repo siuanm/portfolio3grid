@@ -6,6 +6,8 @@ html {
   font-size: 10px;
 }
 
+@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600|Raleway:400,600,700|Abril_fatface);
+
 body {
   background-color: #ffffff;
 }
@@ -13,7 +15,7 @@ body {
 p {
   color: #383737;
   font-size: 1.6rem;
-  font-family: sans-serif;
+  font-family: 'Assistant', sans-serif;
   line-height: 1.3;
   margin-top: .5rem;
 }
@@ -21,8 +23,8 @@ p {
 h1 {
   color: #383737;
   font-size: 2.4rem;
-  font-weight: bolder;
-  font-family: sans-serif;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.5;
   margin-top: .5rem;
 }
@@ -30,8 +32,8 @@ h1 {
 h2 {
   color: #CF262B;
   font-size: 3.2rem;
-  font-weight: bolder;
-  font-family: sans-serif;
+  font-weight: bold;
+  font-family: 'Abril fatface', serif;
   line-height: 1.5;
   margin-top: .5rem;
 }
@@ -39,8 +41,8 @@ h2 {
 h3 {
   color: #EB673E;
   font-size: 2.4rem;
-  font-weight: bolder;
-  font-family: sans-serif;
+  font-weight: bold;
+  font-family: 'Abril fatface', serif;
   align: centered;
 }
 
@@ -70,7 +72,7 @@ section {
 }
 
 .main_l {
-  border-left: 2rem solid #C14382;
+  border-left: 1.6rem solid #C14382;
   padding-bottom: 2.6rem;
   grid-area: main_l;
 }
@@ -78,21 +80,27 @@ section {
 
 .main {
   background-color: #FDF2ED;
-  padding-bottom: 2.6rem;
+  padding: 2.6rem;
   grid-area: main;
 }
 
 .hero {
-  background-image: url("images/hero_image.png");
+  background-image: url('images/hero_image.png');
+  background-size:cover;
   background-color: #FDF2ED;
-  padding-bottom: 2.6rem;
   grid-area: hero;
 }
 
 .main_r {
-  border-right: 2rem solid #EB673E;
+  border-right: 1.6rem solid #EB673E;
   padding-bottom: 2.6rem;
   grid-area: main_r;
+}
+
+.gtr_l_g {
+  background-color: #f7f7f7;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_l_g;
 }
 
 .case1 {
@@ -102,11 +110,35 @@ section {
   grid-area: case1;
 }
 
+.gtr_r_g {
+  background-color: #f7f7f7;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_r_g;
+}
+
+.gtr_l_o {
+  background-color: #fce5db;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_l_o;
+}
+
 .footer1 {
   background-color: #fce5db;
   color: #383737;
   padding-bottom: 2.6rem;
   grid-area: footer1;
+}
+
+.gtr_r_o {
+  background-color: #fce5db;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_r_o;
+}
+
+.gtr_l_p {
+  background-color: #C14382;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_l_p;
 }
 
 .footer2 {
@@ -116,17 +148,24 @@ section {
   grid-area: footer2;
 }
 
+.gtr_r_p {
+  background-color: #C14382;
+  padding-bottom: 2.6rem;
+  grid-area: gtr_r_p;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
+  grid-auto-rows: minmax(3rem, auto);
   grid-template-areas:
   ". logo ."
   ". nav ."
   "main_l main main_r "
   ". . ."
-  "case1 case1 case1"
-  "footer1 footer1 footer1"
-  "footer2 footer2 footer2";
+  "gtr_l_g case1 gtr_r_g"
+  "gtr_l_o footer1 gtr_r_o"
+  "gtr_l_p footer2 gtr_r_p";
 }
 
 
@@ -134,12 +173,13 @@ section {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 6fr 1fr;
+     grid-auto-rows: minmax(4rem, auto);
      grid-template-areas:
      ". logo nav ."
      "main_l main hero main_r"
      ". . . ."
-     "case1 case1 case1 case1"
-     "footer1 footer1 footer1 footer1"
-     "footer2 footer2 footer2 footer2";
+     "gtr_l_g case1 case1 gtr_r_g"
+     "gtr_l_o footer1 footer1 gtr_r_o"
+     "gtr_l_p footer2 footer2 gtr_r_p";
    }
 }
