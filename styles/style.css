@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+p {
+  color: #383737;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  line-height: 1.3;
+  margin-top: .5rem;
+}
+
+h1 {
+  color: #383737;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin-top: .5rem;
+}
+
+h2 {
+  color: #CF262B;
+  font-size: 3.2rem;
+  font-weight: bolder;
+  font-family: sans-serif;
+  line-height: 1.5;
+  margin-top: .5rem;
+}
+
+h3 {
+  color: #EB673E;
+  font-size: 2.4rem;
+  font-weight: bolder;
+  font-family: sans-serif;
+  align: centered;
+}
+
+a {
+  color: #383737;
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+section {
+  background-color: #ffffff;
+  color: #383737;
+}
+
+.logo {
+  background-color: #ffffff;
+  color: #383737;
+  padding-bottom: 2.6rem;
+  grid-area: logo;
+}
+
+.nav {
+  background-color: #ffffff;
+  color: #383737;
+  grid-area: nav;
+}
+
+.main_l {
+  border-left: 2rem solid #C14382;
+  padding-bottom: 2.6rem;
+  grid-area: main_l;
+}
+
+
+.main {
+  background-color: #FDF2ED;
+  padding-bottom: 2.6rem;
+  grid-area: main;
+}
+
+.hero {
+  background-image: url("images/hero_image.png");
+  background-color: #FDF2ED;
+  padding-bottom: 2.6rem;
+  grid-area: hero;
+}
+
+.main_r {
+  border-right: 2rem solid #EB673E;
+  padding-bottom: 2.6rem;
+  grid-area: main_r;
+}
+
+.case1 {
+  background-color: #f7f7f7;
+  color: #383737;
+  padding-bottom: 2.6rem;
+  grid-area: case1;
+}
+
+.footer1 {
+  background-color: #fce5db;
+  color: #383737;
+  padding-bottom: 2.6rem;
+  grid-area: footer1;
+}
+
+.footer2 {
+  background-color: #C14382;
+  color: #383737;
+  padding: 0 4rem;
+  grid-area: footer2;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas:
+  ". logo ."
+  ". nav ."
+  "main_l main main_r "
+  ". . ."
+  "case1 case1 case1"
+  "footer1 footer1 footer1"
+  "footer2 footer2 footer2";
+}
+
+
+ @media screen and (min-width: 600px){
+   .grid-container {
+     display: grid;
+     grid-template-columns: 1fr 4fr 6fr 1fr;
+     grid-template-areas:
+     ". logo nav ."
+     "main_l main hero main_r"
+     ". . . ."
+     "case1 case1 case1 case1"
+     "footer1 footer1 footer1 footer1"
+     "footer2 footer2 footer2 footer2";
+   }
+}
