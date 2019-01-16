@@ -129,11 +129,11 @@ li a {
   grid-area: main_r;
 }
 
-.gtr_l_g {
+.left_grey {
   background-color: #f7f7f7;
   border-left: 1.6rem solid #f7f7f7;
   padding-bottom: 2.6rem;
-  grid-area: gtr_l_g;
+  grid-area: left_grey;
 }
 
 .case1 {
@@ -161,17 +161,17 @@ a.button1 {
  text-align: center;
 }
 
-.gtr_r_g {
+.right_grey {
   background-color: #f7f7f7;
   border-right: 1.6rem solid #f7f7f7;
   padding-bottom: 2.6rem;
-  grid-area: gtr_r_g;
+  grid-area: right_grey;
 }
 
-.gtr_l_o {
+.left_peach {
   background-color: #fce5db;
   padding-bottom: 2.6rem;
-  grid-area: gtr_l_o;
+  grid-area: left_peach;
 }
 
 .footer1 {
@@ -185,16 +185,16 @@ a.button1 {
   align-self: center;
 }
 
-.gtr_r_o {
+.right_peach {
   background-color: #fce5db;
   padding-bottom: 2.6rem;
-  grid-area: gtr_r_o;
+  grid-area: right_peach;
 }
 
-.gtr_l_p {
+.left_pink {
   background-color: #C14382;
   padding-bottom: 2.6rem;
-  grid-area: gtr_l_p;
+  grid-area: left_pink;
 }
 
 .footer2 {
@@ -204,10 +204,10 @@ a.button1 {
 }
 
 
-.gtr_r_p {
+.right_pink {
   background-color: #C14382;
   padding-bottom: 2.6rem;
-  grid-area: gtr_r_p;
+  grid-area: right_pink;
 }
 
 .arrow {
@@ -235,10 +235,10 @@ a.button1 {
   "main_l main main_r "
   ". . ."
   "arrow arrow arrow"
-  "gtr_l_g case1_pic gtr_r_g"
-  "gtr_l_g case1 gtr_r_g"
-  "gtr_l_o footer1 gtr_r_o"
-  "gtr_l_p footer2 gtr_r_p";
+  "left_grey case1_pic right_grey"
+  "left_grey case1 right_grey"
+  "left_peach footer1 right_peach"
+  "left_pink footer2 right_pink";
 }
 
 
@@ -252,8 +252,8 @@ a.button1 {
      "main_l main hero hero main_r"
      ". . . . ."
      "arrow arrow arrow arrow arrow"
-     "gtr_l_g case1_pic case1_pic case1 gtr_r_g"
-     "gtr_l_o footer1 footer1 footer1 gtr_r_o"
-     "gtr_l_p footer2 footer2 footer2 gtr_r_p";
+     "left_grey case1_pic case1_pic case1 right_grey"
+     "left_peach footer1 footer1 footer1 right_peach"
+     "left_pink footer2 footer2 footer2 right_pink";
    }
 }
