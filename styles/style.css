@@ -26,7 +26,6 @@ h1 {
   font-weight: 500;
   font-family: 'Raleway', sans-serif;
   line-height: 1.5;
-  margin-top: .5rem;
 }
 
 h2 {
@@ -43,13 +42,13 @@ h3 {
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'Abril fatface', serif;
-  align: centered;
+  padding-top: 1.7rem;
 }
 
 a {
   color: #383737;
   font-size: 1.6rem;
-  font-family: sans-serif;
+  font-family: 'Assistant', sans-serif;
   text-decoration: none;
 }
 
@@ -61,7 +60,6 @@ img {
 }
 
 section {
-  background-color: #ffffff;
   color: #383737;
 }
 
@@ -84,7 +82,6 @@ section {
 }
 
 ul {
-  vertical-align: bottom;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -98,7 +95,6 @@ li a {
   display: block;
   color: white;
   text-align: center;
-  vertical-align: center;
   padding: 1.2rem;
   text-decoration: none;
 }
@@ -204,9 +200,9 @@ a.button1 {
 .footer2 {
   background-color: #C14382;
   color: #ffffff;
-  padding: 2rem 0;
   grid-area: footer2;
 }
+
 
 .gtr_r_p {
   background-color: #C14382;
@@ -217,6 +213,7 @@ a.button1 {
 .arrow {
     background-color: #f7f7f7;
     color: #383737;
+    text-align: center;
     grid-area: arrow;
 }
 
