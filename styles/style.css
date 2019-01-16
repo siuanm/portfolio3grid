@@ -168,11 +168,6 @@ a.button1 {
   grid-area: right_grey;
 }
 
-.left_peach {
-  background-color: #fce5db;
-  padding-bottom: 2.6rem;
-  grid-area: left_peach;
-}
 
 .footer1 {
   background-color: #fce5db;
@@ -185,11 +180,6 @@ a.button1 {
   align-self: center;
 }
 
-.right_peach {
-  background-color: #fce5db;
-  padding-bottom: 2.6rem;
-  grid-area: right_peach;
-}
 
 .left_pink {
   background-color: #C14382;
@@ -237,7 +227,7 @@ a.button1 {
   "arrow arrow arrow"
   "left_grey case1_pic right_grey"
   "left_grey case1 right_grey"
-  "left_peach footer1 right_peach"
+  "footer1 footer1 footer1"
   "left_pink footer2 right_pink";
 }
 
@@ -253,7 +243,7 @@ a.button1 {
      ". . . . ."
      "arrow arrow arrow arrow arrow"
      "left_grey case1_pic case1_pic case1 right_grey"
-     "left_peach footer1 footer1 footer1 right_peach"
+     "footer1 footer1 footer1 footer1 footer1"
      "left_pink footer2 footer2 footer2 right_pink";
    }
 }
