@@ -69,9 +69,8 @@ section {
   color: #383737;
 }
 
-.logo {
-  padding-bottom: 2.6rem;
-  grid-area: logo;
+.top {
+  grid-area: top;
 }
 
 .logo_i {
@@ -82,7 +81,7 @@ section {
 
 .nav {
   color: #383737;
-  padding-bottom: 1rem;
+  padding-top: 4.5rem;
   align-self: end;
   grid-area: nav;
 }
@@ -150,6 +149,11 @@ li a {
   grid-area: case1;
 }
 
+.green {
+  background-color: #CDD7D0;
+  padding: .5rem 18vw .5rem 18vw;
+}
+
 .case1_pic {
   background-color: #f7f7f7;
   color: #383737;
@@ -185,7 +189,6 @@ a.button1 {
   grid-area: footer2;
 }
 
-
 .arrow {
     background-color: #f7f7f7;
     color: #383737;
@@ -204,10 +207,9 @@ a.button1 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 8.6rem auto 80vh 3rem 3rem max-content auto 70px 150px;
+  grid-template-rows: 8.6rem 80vh 3rem 3rem max-content auto 70px 150px;
   grid-template-areas:
-  ". logo ."
-  ". nav ."
+  ". top ."
   "main_l main main_r "
   ". . ."
   "arrow arrow arrow"
@@ -224,7 +226,7 @@ a.button1 {
      grid-template-columns: 1fr 4fr 2fr 4fr 1fr;
      grid-template-rows: 8.6rem 80vh 3rem 3rem max-content 70px 150px;
      grid-template-areas:
-     ". logo . nav ."
+     ". top top top ."
      "main_l main hero hero main_r"
      ". . . . ."
      "arrow arrow arrow arrow arrow"
