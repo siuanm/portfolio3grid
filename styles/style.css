@@ -46,7 +46,7 @@ h3 {
 
 h4 {
   color: #ffffff;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-family: 'Assistant', sans-serif;
   line-height: 1.3;
 }
@@ -179,10 +179,12 @@ a.button1 {
 .footer2 {
   background-color: #C14382;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   grid-area: footer2;
 }
+
 
 .arrow {
     background-color: #f7f7f7;
