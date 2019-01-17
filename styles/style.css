@@ -17,7 +17,7 @@ p {
   font-size: 1.6rem;
   font-family: 'Assistant', sans-serif;
   line-height: 1.3;
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
 
 h1 {
@@ -33,7 +33,6 @@ h2 {
   font-size: 3.2rem;
   font-weight: bold;
   font-family: 'Abril fatface', serif;
-  line-height: 1.5;
   margin-top: .5rem;
 }
 
@@ -65,8 +64,20 @@ img {
   width: 100%;
 }
 
+img.img_a {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
 section {
   color: #383737;
+}
+
+.pink {
+    color: #C14382;
+    font-weight: bold;
 }
 
 .top {
@@ -74,14 +85,13 @@ section {
 }
 
 .logo_i {
-  width: 6rem;
-  height: 6rem;
+  height: 8vh;
+  width: auto;
   float: left;
 }
 
 .nav {
   color: #383737;
-  padding-top: 4.5rem;
   align-self: end;
   grid-area: nav;
 }
@@ -151,7 +161,14 @@ li a {
 
 .green {
   background-color: #CDD7D0;
-  padding: .5rem 18vw .5rem 18vw;
+  margin-left: 20vw;
+  padding: .5rem 40vw .5rem 20vw;
+}
+
+.case_text {
+  text-align: left;
+  margin-left: 20vw;
+  margin-right: 2vw;
 }
 
 .case1_pic {
@@ -207,7 +224,7 @@ a.button1 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 8.6rem 80vh 3rem 3rem max-content auto 70px 150px;
+  grid-template-rows: 10vh 80vh 3rem 3rem max-content auto 70px 150px;
   grid-template-areas:
   ". top ."
   "main_l main main_r "
@@ -220,11 +237,11 @@ a.button1 {
 }
 
 
- @media screen and (min-width: 600px){
+ @media screen and (min-width: 800px){
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 2fr 4fr 1fr;
-     grid-template-rows: 8.6rem 80vh 3rem 3rem max-content 70px 150px;
+     grid-template-rows: 10vh 80vh 3rem 3rem max-content 70px 150px;
      grid-template-areas:
      ". top top top ."
      "main_l main hero hero main_r"
@@ -233,5 +250,15 @@ a.button1 {
      "case1_pic case1_pic case1_pic case1 case1"
      "footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2";
+   }
+
+   .green {
+     background-color: #CDD7D0;
+     margin-left: 10vw;
+     padding: .5rem 18vw .5rem 8vw;
+   }
+
+   .case_text {
+     margin-left: 10vw;
    }
 }
