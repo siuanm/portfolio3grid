@@ -290,7 +290,7 @@ ol.body_list li {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 8vh 50vh 20vh 8vh max-content max-content max-content 70px 150px;
+  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(3, max-content) 70px 150px;
   grid-template-areas:
   ". top ."
   "banner banner banner"
@@ -309,7 +309,7 @@ ol.body_list li {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 1fr 1fr 4fr 1fr;
-     grid-template-rows: 10vh 8vh 80vh max-content max-content max-content 70px 150px;
+     grid-template-rows: 10vh 8vh 80vh repeat(3, max-content) 70px 150px;
      grid-template-areas:
      ". top top top top ."
      "banner banner banner banner banner banner"
