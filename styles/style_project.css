@@ -95,8 +95,8 @@ section {
     font-weight: bold;
 }
 
-.orange {
-    font-weight: bold;
+.bold {
+    font-weight: 700;
 }
 
 .top {
@@ -120,17 +120,17 @@ section {
   text-align: center;
 }
 
-ul {
+ul.navigation {
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-li {
+ul li {
   float: right;
 }
 
-li a {
+ul li a {
   display: block;
   color: white;
   text-align: center;
@@ -138,21 +138,23 @@ li a {
   text-decoration: none;
 }
 
-.main_l {
-  border-left: 1.6rem solid #C14382;
-  padding-bottom: 2.6rem;
-  grid-area: main_l;
+ol.body_list  {
+  list-style-type: decimal;
+  list-style-position: outside;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 20px;
 }
 
-.main {
-  height: 80vh;
-  display: flex;
-  align-items: left;
-  justify-content: center;
-  flex-direction: column;
-  background-color: #FDF2ED;
-  padding: 4rem;
-  grid-area: main;
+ol.body_list li {
+  float: left;
+  color: #383737;
+  font-size: 1.6rem;
+  font-family: 'Assistant', sans-serif;
+  line-height: 1.3;
+  margin-top: 1rem;
 }
 
 .hero {
@@ -163,12 +165,6 @@ li a {
   background-repeat: no-repeat;
   width: auto;
   grid-area: hero;
-}
-
-.main_r {
-  border-right: 1.6rem solid #EB673E;
-  padding-bottom: 2.6rem;
-  grid-area: main_r;
 }
 
 
@@ -207,17 +203,6 @@ li a {
   color: #383737;
   padding-bottom: 2.6rem;
   grid-area: case1_pic;
-}
-
-a.button1 {
- background-color: #CF262B;
- border: none;
- border-radius: 4px;
- color: white;
- cursor: pointer;
- font-size: 1.2rem;
- padding: .6rem 2rem ;
- text-align: center;
 }
 
 .banner {
@@ -282,6 +267,16 @@ a.button1 {
   grid-area: row1;
 }
 
+.row2 {
+  background-color: #ffffff;
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #383737;
+  text-align: left;
+  grid-area: row2;
+}
+
 #char {
   display: grid;
   grid-template-columns: minmax(min-content, 550px);
@@ -295,7 +290,7 @@ a.button1 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 8vh 50vh 20vh 8vh max-content max-content 70px 150px;
+  grid-template-rows: 10vh 8vh 50vh 20vh 8vh max-content max-content max-content 70px 150px;
   grid-template-areas:
   ". top ."
   "banner banner banner"
@@ -304,6 +299,7 @@ a.button1 {
   "arrow arrow arrow"
   "intro intro intro"
   "row1 row1 row1"
+  "row2 row2 row2"
   "footer1 footer1 footer1"
   "footer2 footer2 footer2";
 }
@@ -313,22 +309,18 @@ a.button1 {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 1fr 1fr 4fr 1fr;
-     grid-template-rows: 10vh 8vh 80vh max-content max-content 70px 150px;
+     grid-template-rows: 10vh 8vh 80vh max-content max-content max-content 70px 150px;
      grid-template-areas:
      ". top top top top ."
      "banner banner banner banner banner banner"
      "hero hero hero hero case1 case1"
      "intro intro intro intro intro intro"
      "row1 row1 row1 row1 row1 row1"
+     "row2 row2 row2 row2 row2 row2"
      "footer1 footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2 footer2";
    }
 
-   .green {
-     background-color: #CDD7D0;
-     margin-left: 10vw;
-     padding: .5rem 18vw .5rem 8vw;
-   }
 
    .case_text {
      margin-left: 10vw;
