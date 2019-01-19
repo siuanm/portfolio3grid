@@ -448,7 +448,7 @@ dl dd {
   grid-area: row9;
 }
 
-.row10{
+.row10 {
   background-color: #f7f7f7;
   padding: 40px 20px 40px 20px;
   display: flex;
@@ -458,7 +458,7 @@ dl dd {
   grid-area: row10;
 }
 
-.row11{
+.row11 {
   background-color: #ffffff;
   padding: 40px 20px 40px 20px;
   display: flex;
@@ -468,14 +468,14 @@ dl dd {
   grid-area: row11;
 }
 
-.row12{
+.row12 {
   background-color: #ffffff;
   display: flex;
     flex-direction: column;
   grid-area: row12;
 }
 
-.row13{
+.row13 {
   background-color: #ffffff;
   padding: 40px 20px 40px 20px;
   display: flex;
@@ -504,6 +504,53 @@ dl dd {
   color: #383737;
   text-align: left;
   grid-area: row14b;
+}
+
+.row15 {
+  background-color: #ffffff;
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #383737;
+  text-align: left;
+  grid-area: row15;
+}
+
+.row16 {
+  background-color: #f7f7f7;
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #383737;
+  text-align: left;
+  grid-area: row16;
+}
+
+.row17 {
+  background-color: #f7f7f7;
+  display: flex;
+    flex-direction: column;
+  grid-area: row17;
+}
+
+.row18 {
+  background-color: #f7f7f7;
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #383737;
+  text-align: left;
+  grid-area: row18;
+}
+
+.row19 {
+  background-color: #ffffff;
+  padding: 40px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #383737;
+  text-align: left;
+  grid-area: row19;
 }
 
 
@@ -540,7 +587,7 @@ dl dd {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(19, max-content) 70px 150px;
+  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(24 , max-content) 70px 150px;
   grid-template-areas:
   ". top ."
   "banner banner banner"
@@ -566,6 +613,11 @@ dl dd {
   "row13 row13 row13"
   "row14a row14a row14a"
   "row14b row14b row14b"
+  "row15 row15 row15"
+  "row16 row16 row16"
+  "row17 row17 row17"
+  "row18 row18 row18"
+  "row19 row19 row19"
   "footer1 footer1 footer1"
   "footer2 footer2 footer2";
 }
@@ -575,7 +627,7 @@ dl dd {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 1fr 1fr 4fr 1fr;
-     grid-template-rows: 10vh 8vh 80vh repeat(16, max-content) 70px 150px;
+     grid-template-rows: 10vh 8vh 80vh repeat(21, max-content) 70px 150px;
      grid-template-areas:
      ". top top top top ."
      "banner banner banner banner banner banner"
@@ -596,6 +648,11 @@ dl dd {
      "row12 row12 row12 row12 row12 row12"
      "row13 row13 row13 row13 row13 row13"
      ". . row14a row14b . ."
+     "row15 row15 row15 row15 row15 row15"
+     "row16 row16 row16 row16 row16 row16"
+     "row17 row17 row17 row17 row17 row17"
+     "row18 row18 row18 row18 row18 row18"
+     "row19 row19 row19 row19 row19 row19"
      "footer1 footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2 footer2";
    }
