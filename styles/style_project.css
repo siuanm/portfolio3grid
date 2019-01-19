@@ -491,6 +491,7 @@ dl dd {
   display: flex;
   flex-direction: column;
   color: #383737;
+  width: 100%
   text-align: left;
   grid-area: row14a;
 }
@@ -539,7 +540,7 @@ dl dd {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(17, max-content) 70px 150px;
+  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(19, max-content) 70px 150px;
   grid-template-areas:
   ". top ."
   "banner banner banner"
@@ -563,6 +564,8 @@ dl dd {
   "row11 row11 row11"
   "row12 row12 row12"
   "row13 row13 row13"
+  "row14a row14a row14a"
+  "row14b row14b row14b"
   "footer1 footer1 footer1"
   "footer2 footer2 footer2";
 }
@@ -572,7 +575,7 @@ dl dd {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 1fr 1fr 4fr 1fr;
-     grid-template-rows: 10vh 8vh 80vh repeat(15, max-content) 70px 150px;
+     grid-template-rows: 10vh 8vh 80vh repeat(16, max-content) 70px 150px;
      grid-template-areas:
      ". top top top top ."
      "banner banner banner banner banner banner"
@@ -592,6 +595,7 @@ dl dd {
      "row11 row11 row11 row11 row11 row11"
      "row12 row12 row12 row12 row12 row12"
      "row13 row13 row13 row13 row13 row13"
+     ". . row14a row14b . ."
      "footer1 footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2 footer2";
    }
