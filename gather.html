@@ -11,7 +11,7 @@
      <div class="grid-container">
       <!--header-->
         <section class="top">
-           <a href="index.html"><img src="images/logo.png" class=logo_i></a>
+           <a href="index.html" id="top1"><img src="images/logo.png" class=logo_i></a>
            <UL class="navigation">
             <LI><a href="images/siuan_mcgahan_resume.pdf" class="nav" target="_blank">resume</a></LI>
               <LI><a href="about.html" class="nav">about</a></LI>
@@ -43,7 +43,7 @@
          <div id="char">
            <h5>summary</h5>
          <P>Gather is a cloud storage solution that gathers all your data, links and notes in one location  and offers simplified, yet powerful organizational capabilities.
-         <P><a href="invision.html" class="proto"><span class="bold">Desktop Prototype</span></a> | <a href="invision.html" class="proto"><span class="bold">Mobile Prototype</span> </a>
+         <P><a href="invision.html" class="proto"><span class="pink">Desktop Prototype</span></a> | <a href="invision.html" class="proto"><span class="orange">Mobile Prototype</span> </a>
          <P><span class="bold">My role:</span> UX Research, UX Design, Visual Design, Branding.
          <P><span class="bold">Deliverables:</span> User Surveys, Competitive Analysis, User Personas, User Stories & Flows, Wireframes, Usability Testing, High Fidelity Mockups, More Testing, Prototype, More testing. Lots of Testing!
          <P><span class="bold">Tools Used:</span> Figma, Photoshop, Illustrator, InVision, UsabilityHub, Draw.io, Pen & Paper.
@@ -347,6 +347,95 @@
                           <P><span class="bold">Takeaway: </span> These preference tests were a valuable lesson in the delicate balancing act of keeping things simple, while also providing sufficient information and cues.
                           </div>
                        </section>
+
+                       <!-- Mockups v02 -->
+                             <section class="row25">
+                                <div id="char">
+                                    <h5>Mock ups v02</h5>
+                                       <p>The results of my preference testing, along with some suggestions from senior designers
+                                         led to a second round of mockups. Below are just some of the implemented adjustments.
+                                      <P>&nbsp;
+                                      <P><span class="bold">Change #1:</span>
+                                      <p>Progression of mobile bottom sheet (and icons/folders.)
+
+                                      <img src="images/mockups2_change1.png" class=img_c>
+                                        <p>Originally, I was trying to offer too many options on my bottom sheet. Users had trouble
+                                        finding what they were looking for. I was also not leaving enough room around the different
+                                         options.
+                                      <p>I decided to stick strictly to the “Miller’s Law” recommendation of +/- 5 items at a time and
+                                        reduce some immediate functionality, in favor of clarity. I also created a larger sheet for more “breathing room.”
+                                        <P>&nbsp;
+                                        <P><span class="bold">Change #2:</span>
+                                        <p>Progression of desktop “create” menu:
+
+                                        <img src="images/mockups2_change2.png" class=img_c>
+                                        <p>I decided to similarly reduce the options on my desktop menu.
+                                        <p>Again, it was a decision to sacrifice some immediate functionality in order to minimize
+                                          cognitive overload.
+                                      </div>
+                              </section>
+
+                         <!-- More usability tests -->
+                                    <section class="row26">
+                                       <div id="char">
+                                           <h5>More usability testing</h5>
+                                              <p>With these design changes applied to my prototype, I went into a final round of Usability Testing. Though all participants generally found it pretty straightforward to perform the requested tasks. The patterns that warranted some revision were:
+                                                <OL class="body_list">
+                                                  <li>The landing page does not clearly show that the site is more than a competitor to google drive. The fact that it aims to consolidate facets of applications such as pinterest/pocket, keep and asana also, does not seem to be readily apparent.
+                                                       </br><span class="bold">Action item: Content needs revising.</span></li>
+                                                  <li> It is not obvious that the landing page scrolls to further information.
+                                                       </br><span class="bold">Action item: add indicator to signify there is more reading below the fold.</span></li>
+                                                  <li>It is not obvious when you first log in that you would click the “create” button to upload files.
+                                                       </br><span class="bold">Action item: revise empty state content and create onboarding tour.</span></li>
+                                                  <li> Participants expect a toolbar add-on for saving URL/link, no one wants to type or paste a URL in (I had this functionality in original wireframes, it was just hard to prototype so left it out).
+                                                        </br><span class="bold">Action item: Bring back toolbar extension feature to “save link.”</span></li>
+                                                  <li>Screen/button for “adding a project” and “adding files to project” are too similar.
+                                                       </br><span class="bold">Action item: use color to distinguish these two from each other.</span></li>
+                                                  <li>The information about “My groups” did not make it completely clear that this section was about contacts and not about groups of files.
+                                                       </br><span class="bold">Action item: review wording and create onboarding tour.</span></li>
+                                                </ol>
+                                        </div>
+                                      </section>
+
+                          <!-- Mockups v02 -->
+                                            <section class="row27">
+                                               <div id="char">
+                                                   <h5>final product</h5>
+                                                      <p>Building on all of these iterations and considerations, I reached my final design:
+                                                      <P class="dotted"> &nbsp;<a href="invision.html" class="proto"><span class="pink">Desktop Prototype</span></a> | <a href="invision.html" class="proto"><span class="orange">Mobile Prototype</span> </a></p>
+                                                      <p>&nbsp;<P><span class="bold">Final Desktop Screens:</span>
+                                                      <p>&nbsp;<br><img src="images/final_landing.png" class=img_c>
+                                                      <img src="images/final_dash.png" class=img_c>
+                                                      <p>&nbsp;<P><span class="bold">Final Mobile Screens:</span>
+                                                      <p>&nbsp;  <img src="images/final_mobile.png" class=img_c>
+                                                </div>
+                                              </section>
+
+                          <!--green bar heading -->
+                                              <section class="concl">
+                                                          <div class="green_left"><h1>Conclusion</h1></div>
+                                              </section>
+
+                            <!--conclusion -->
+                                              <section class="row28">
+                                                 <div id="char">
+                                                   <h5>conclusion</h5>
+                                                 <P>Through many hours and iterations, there were valuable lessons learned at every step in the process. Some key takeaways:
+                                                    <OL class="body_list">
+                                                      <li>Putting ideas and designs out there, <span class="bold">testing early and often</span> is very beneficial for honing in on what works and what doesn’t.</li>
+                                                      <li>Though aesthetic considerations matter, form must serve function. <span class="bold">Superfluous visual elements</span>, no matter how aesthetically pleasing, can become a distraction.</li>
+                                                      <li>Effective design hinges on creating a delicate balance between offering sufficient information and too much information. At the beginning of my design process, I was loosely adhering to the
+                                                        idea that humans have a capacity for keeping ~7 bits of information ‘in the head’ short term (this is known as <span class="bold">Miller’s Law</span>)</li>
+                                                      <li>In my effort to offer more functionality up front however, I was erring on the higher side rather than the lower side of
+                                                        that approximation. My user testing and feedback confirmed it was better to organize in <span class="bold">chunks of ~5 </span>
+                                                        (the lower end of the formula) and sacrifice some upfront functionality.</li>
+                                                      <li>Give ideas and images <span class="bold">room to breathe!</span></li>
+                                                      <li>Scrolling and drilling down are not necessarily the enemy. Often it’s better to have only a <span class="bold">handful of readily
+                                                         visible options</span>, essentially narrowing your focus so as to prioritize your attention and resources.</li></oL>
+                                                      <a href="#top1" class="return">return to top</a>
+                                                   </div>
+                                               </section>
+
             <!--footer -->
             <section class="footer1">
                 <h3>connect? <a href="mailto:x@siuan.com?subject=portfolio" class="mail">x@siuan.com</a></h3>
