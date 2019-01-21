@@ -226,7 +226,7 @@ a.button1 {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 80vh 5vh 5vh max-content auto 70px 150px;
+  grid-template-rows: 10vh 70vh 5vh 5vh max-content auto 70px 150px;
   grid-template-areas:
   ". top ."
   "main_l main main_r "
