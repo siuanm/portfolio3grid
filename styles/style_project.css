@@ -3,7 +3,7 @@
 }
 
 html {
-  font-size: 10px;
+  font-size: 8px;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600,italic|Raleway:400,600,700|Abril_fatface|Quicksand|Archivo_narrow:400,600|Source_sans_pro);
@@ -787,6 +787,36 @@ dl dd {
      "row28 row28 row28 row28 row28 row28"
      "footer1 footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2 footer2";
+   }
+
+   html {
+     font-size: 10px;
+   }
+
+   p {
+     color: #383737;
+     font-size: 1.6rem;
+     font-family: 'Assistant', sans-serif;
+     font-weight: 300;
+     line-height: 1.3;
+     margin-top: 1rem;
+   }
+
+   .nav {
+     color: #383737;
+     font-size: 1.6rem;
+     align-self: end;
+     grid-area: nav;
+   }
+
+   .green {
+     background-color: #CDD7D0;
+     margin-left: 10vw;
+     padding: .5rem 18vw .5rem 8vw;
+   }
+
+   .case_text {
+     margin-left: 10vw;
    }
 
    img.img_b {
