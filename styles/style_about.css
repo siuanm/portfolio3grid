@@ -8,6 +8,49 @@ html {
 
 @import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600,italic|Raleway:400,600,700|Abril_fatface|Quicksand|Archivo_narrow:400,600|Source_sans_pro);
 
+@font-face {
+    font-family: 'assistantbold';
+    src: url('fonts/assistant-bold-webfont.woff2') format('woff2'),
+         url('fonts/assistant-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'assistantextrabold';
+    src: url('fonts/assistant-extrabold-webfont.woff2') format('woff2'),
+         url('fonts/assistant-extrabold-webfont.woff') format('woff');
+  }
+
+@font-face {
+    font-family: 'assistantextralight';
+    src: url('fonts/assistant-extralight-webfont.woff2') format('woff2'),
+         url('fonts/assistant-extralight-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'assistantlight';
+    src: url('fonts/assistant-light-webfont.woff2') format('woff2'),
+         url('fonts/assistant-light-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'assistantregular';
+    src: url('fonts/assistant-regular-webfont.woff2') format('woff2'),
+         url('fonts/assistant-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'assistantsemibold';
+    src: url('fonts/assistant-semibold-webfont.woff2') format('woff2'),
+         url('fonts/assistant-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'abril_fatfaceregular';
+    src: url('fonts/abrilfatface-regular-webfont.woff2') format('woff2'),
+         url('fonts/abrilfatface-regular-webfont.woff') format('woff');
+
+}
+
 body {
   background-color: #ffffff;
 }
@@ -15,8 +58,8 @@ body {
 p {
   color: #383737;
   font-size: 1.6rem;
-  font-family: 'Assistant', sans-serif;
-    font-weight: 300;
+  font-family: 'assistantlight', sans-serif;
+  font-weight: normal;
   line-height: 1.3;
   margin-top: 1rem;
 }
@@ -33,7 +76,7 @@ h2 {
   color: #CF262B;
   font-size: 3.2rem;
   font-weight: bold;
-  font-family: 'Abril fatface', serif;
+  font-family: 'CustomFont', abril_fatfaceregular, serif;
   margin-top: .5rem;
 }
 
@@ -41,20 +84,20 @@ h3 {
   color: #EB673E;
   font-size: 2.4rem;
   font-weight: bold;
-  font-family: 'Abril fatface', serif;
+  font-family: 'CustomFont', abril_fatfaceregular, serif;
 }
 
 h4 {
   color: #ffffff;
   font-size: 1.3rem;
-  font-family: 'Assistant', sans-serif;
-  line-height: 1.3;
+  font-family: 'assistant', sans-serif;
+  font-weight: normal;  line-height: 1.3;
 }
 
 h5 {
   color: #CF262B;
   font-size: 2.4rem;
-  font-family: 'Assistant', sans-serif;
+  font-family: 'assistant', sans-serif;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.3;
@@ -63,7 +106,7 @@ h5 {
 a {
   color: #C14382;
   font-size: 1.6rem;
-  font-family: 'Assistant', sans-serif;
+  font-family: 'assistant', sans-serif;
   text-decoration: none;
 }
 
@@ -209,7 +252,7 @@ ul li a {
   color: #383737;
   font-size: 1.6rem;
   font-weight: 400;
-  font-family: 'Assistant', sans-serif;
+  font-family: 'assistant', sans-serif;
   text-decoration: none;
 }
 
@@ -314,7 +357,7 @@ ul li a {
    p {
      color: #383737;
      font-size: 1.6rem;
-     font-family: 'CustomFont', assistantlight, sans-serif;
+     font-family: 'assistantlight', sans-serif;
      font-weight: normal;
      line-height: 1.3;
      margin-top: 1rem;
