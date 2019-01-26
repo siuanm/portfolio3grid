@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'assistantbold';
-    src: url('assistant-bold-webfont.woff2') format('woff2'),
-         url('assistant-bold-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-bold-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -16,8 +16,8 @@
 
 @font-face {
     font-family: 'assistantextrabold';
-    src: url('assistant-extrabold-webfont.woff2') format('woff2'),
-         url('assistant-extrabold-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-extrabold-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-extrabold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -28,8 +28,8 @@
 
 @font-face {
     font-family: 'assistantextralight';
-    src: url('assistant-extralight-webfont.woff2') format('woff2'),
-         url('assistant-extralight-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-extralight-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-extralight-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -40,8 +40,8 @@
 
 @font-face {
     font-family: 'assistantlight';
-    src: url('assistant-light-webfont.woff2') format('woff2'),
-         url('assistant-light-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-light-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -52,8 +52,8 @@
 
 @font-face {
     font-family: 'assistantregular';
-    src: url('assistant-regular-webfont.woff2') format('woff2'),
-         url('assistant-regular-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-regular-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -64,8 +64,8 @@
 
 @font-face {
     font-family: 'assistantsemibold';
-    src: url('assistant-semibold-webfont.woff2') format('woff2'),
-         url('assistant-semibold-webfont.woff') format('woff');
+    src: url('http://siuan.com/styles/fonts/assistant-semibold-webfont.woff2') format('woff2'),
+         url('http://siuan.com/styles/fonts/assistant-semibold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
