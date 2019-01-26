@@ -53,8 +53,32 @@ html {
 
 @font-face {
     font-family: 'ralewayregular';
-    src: url('raleway-regular-webfont.woff2') format('woff2'),
-         url('raleway-regular-webfont.woff') format('woff');
+    src: url('fonts/raleway-regular-webfont.woff2') format('woff2'),
+         url('fonts/raleway-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quicksand_lightregular';
+    src: url('fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('fonts/quicksand-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archivo_narrowregular';
+    src: url('fonts/archivonarrow-regular-webfont.woff2') format('woff2'),
+         url('fonts/archivonarrow-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source_sans_proregular';
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -72,10 +96,10 @@ p {
   margin-top: 1rem;
 }
 
-p.quicksand {
+.quicksand {
   color: #383737;
   font-size: 2.5rem;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'quicksand_lightregular', sans-serif;
   line-height: 1.3;
   margin-top: 1rem;
 }
@@ -93,7 +117,7 @@ a.return {
 p.archivo_narrow {
   color: #383737;
   font-size: 2rem;
-  font-family: 'Archivo_narrow', sans-serif;
+  font-family: 'archivo_narrowregular', sans-serif;
   line-height: 1.3;
   margin-top: 1.6rem;
 }
@@ -101,7 +125,7 @@ p.archivo_narrow {
 p.source_sans_pro {
   color: #383737;
   font-size: 1.6rem;
-  font-family: 'Source_sans_pro', sans-serif;
+  font-family: 'source_sans_proregular', sans-serif;
   line-height: 1.3;
   margin-top: 1.6rem;
 }
@@ -127,7 +151,7 @@ h2 {
   color: #CF262B;
   font-size: 3.2rem;
   font-weight: bold;
-  font-family: 'CustomFont', abril_fatfaceregular, serif;
+  font-family: 'abril_fatfaceregular', serif;
   margin-top: .5rem;
 }
 
@@ -135,7 +159,7 @@ h3 {
   color: #EB673E;
   font-size: 2.4rem;
   font-weight: bold;
-  font-family: 'CustomFont', abril_fatfaceregular, serif;
+  font-family: 'abril_fatfaceregular', serif;
 }
 
 h4 {
