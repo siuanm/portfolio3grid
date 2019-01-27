@@ -270,7 +270,8 @@ a.button1 {
 .mail {
   color: #383737;
   font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-weight: 400;
+  font-family: 'assistantlight', sans-serif;
   text-decoration: none;
 }
 
