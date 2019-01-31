@@ -317,7 +317,7 @@ ul li a {
 
 #char {
   display: grid;
-  grid-template-columns: minmax(min-content, 550px);
+  grid-template-columns: minmax(min-content, 600px);
   grid-gap: 5px;
   box-sizing: border-box;
   justify-content: center;
