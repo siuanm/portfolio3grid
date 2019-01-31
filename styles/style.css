@@ -6,7 +6,7 @@ html {
   font-size: 8px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Assistant:300,400,600|Raleway:400,600,700|Abril_fatface);
+@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600|Raleway:400,600,700|Abril_fatface);
 
 @font-face {
     font-family: 'assistantbold';
@@ -76,8 +76,8 @@ p {
 h1 {
   color: #383737;
   font-size: 2.4rem;
-  font-weight: 500;
-  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-family: 'raleway', sans-serif;
   line-height: 1.5;
 
 }
