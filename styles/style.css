@@ -6,7 +6,7 @@ html {
   font-size: 8px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600|Questrial|Raleway:400,600,700|Abril_fatface);
+@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600|Questrial:400|Raleway:400,600,700|Abril_fatface);
 
 @font-face {
     font-family: 'assistantbold';
