@@ -51,14 +51,6 @@ html {
 
 }
 
-@font-face {
-    font-family: 'ralewayregular';
-    src: url('raleway-regular-webfont.woff2') format('woff2'),
-         url('raleway-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 body {
   background-color: #ffffff;
@@ -76,7 +68,7 @@ p {
 h1 {
   color: #383737;
   font-size: 3rem;
-  font-weight: 400;
+  font-weight: normal;
   font-family: 'Raleway', sans-serif;
   line-height: 1.5;
 
