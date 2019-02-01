@@ -142,9 +142,10 @@ p.dotted {
 h1 {
   color: #383737;
   font-size: 3rem;
-  font-weight: 400;
-  font-family: 'Questrial', sans-serif;
+  font-weight: normal;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.5;
+
 }
 
 h2 {
