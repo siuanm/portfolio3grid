@@ -136,6 +136,10 @@ a {
   text-decoration: none;
 }
 
+a.ionicons {
+  font-size: 2.4rem;
+}
+
 img {
   display: flex;
   justify-content: center;

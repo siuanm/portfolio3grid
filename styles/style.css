@@ -235,6 +235,10 @@ a.button1 {
  text-align: center;
 }
 
+a.ionicons {
+  font-size: 2.4rem;
+}
+
 .footer1 {
   background-color: #fce5db;
   display: flex;
@@ -266,6 +270,8 @@ a.button1 {
   font-family: 'assistantlight', sans-serif;
   text-decoration: none;
 }
+
+
 
 .grid-container {
   display: grid;
