@@ -178,6 +178,10 @@ section {
   text-align: center;
 }
 
+.centered {
+  text-align: center;
+}
+
 ul.navigation {
   margin: 0;
   padding: 0;

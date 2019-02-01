@@ -51,13 +51,6 @@ html {
 
 }
 
-@font-face {
-    font-family: 'ralewayregular';
-    src: url('fonts/raleway-regular-webfont.woff2') format('woff2'),
-         url('fonts/raleway-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
     font-family: 'quicksand_lightregular';
@@ -252,6 +245,9 @@ section {
   grid-area: top;
 }
 
+.centered {
+  align-content: center;
+}
 .logo_i {
   height: 8vh;
   width: auto;
