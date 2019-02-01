@@ -6,7 +6,7 @@ html {
   font-size: 8px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600,italic|Questrial:400|Raleway:400,600,700|Abril_fatface|Quicksand|Archivo_narrow:400,600|Source_sans_pro);
+@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600,italic|Raleway:400,600,700|Abril_fatface|);
 
 @font-face {
     font-family: 'assistantbold';
@@ -52,29 +52,6 @@ html {
 }
 
 
-@font-face {
-    font-family: 'quicksand_lightregular';
-    src: url('fonts/quicksand-light-webfont.woff2') format('woff2'),
-         url('fonts/quicksand-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'archivo_narrowregular';
-    src: url('fonts/archivonarrow-regular-webfont.woff2') format('woff2'),
-         url('fonts/archivonarrow-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'source_sans_proregular';
-    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
   background-color: #ffffff;
@@ -89,13 +66,7 @@ p {
   margin-top: 1rem;
 }
 
-.quicksand {
-  color: #383737;
-  font-size: 2.5rem;
-  font-family: 'quicksand_lightregular', sans-serif;
-  line-height: 1.3;
-  margin-top: 1rem;
-}
+
 
 a.return {
   color: #C14382;
@@ -107,21 +78,7 @@ a.return {
   justify-content: right;
 }
 
-p.archivo_narrow {
-  color: #383737;
-  font-size: 2rem;
-  font-family: 'archivo_narrowregular', sans-serif;
-  line-height: 1.3;
-  margin-top: 1.6rem;
-}
 
-p.source_sans_pro {
-  color: #383737;
-  font-size: 1.6rem;
-  font-family: 'source_sans_proregular', sans-serif;
-  line-height: 1.3;
-  margin-top: 1.6rem;
-}
 
 p.dotted {
   border-style: solid;
@@ -245,9 +202,7 @@ section {
   grid-area: top;
 }
 
-.centered {
-  align-content: center;
-}
+
 .logo_i {
   height: 8vh;
   width: auto;
