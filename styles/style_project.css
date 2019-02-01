@@ -198,7 +198,7 @@ img.img_a {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  width: 240px;
+  width: 275px;
   height: auto;
 }
 
@@ -846,6 +846,7 @@ dl dd {
      "row12 row12 row12 row12 row12 row12"
      "row13 row13 row13 row13 row13 row13"
      ". . row14a row14b . ."
+
      "row15 row15 row15 row15 row15 row15"
      "row16 row16 row16 row16 row16 row16"
      "row17 row17 row17 row17 row17 row17"
