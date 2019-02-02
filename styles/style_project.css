@@ -66,8 +66,6 @@ p {
   margin-top: 1rem;
 }
 
-
-
 a.return {
   color: #C14382;
   font-weight: bold;
@@ -78,7 +76,9 @@ a.return {
   justify-content: right;
 }
 
-
+a.return:hover {
+    color: #EB673E;
+}
 
 p.dotted {
   border-style: solid;
@@ -136,8 +136,16 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+    color: #EB673E;
+}
+
 a.ionicons {
   font-size: 2.4rem;
+}
+
+a.ionicons {
+      color: #ffffff;
 }
 
 img {
@@ -222,6 +230,10 @@ section {
 .proto {
   color: #383737;
   text-align: center;
+}
+
+a.prototype:hover {
+  font-stretch: expanded;
 }
 
 ul.navigation {
@@ -380,8 +392,8 @@ dl dd {
 
 .mail {
   color: #383737;
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: 1.8rem;
+  font-weight: bold;
   font-family: 'assistantlight', sans-serif;
   text-decoration: none;
 }

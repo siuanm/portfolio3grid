@@ -111,8 +111,16 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+    color: #EB673E;
+}
+
 a.ionicons {
   font-size: 2.4rem;
+}
+
+a.ionicons {
+    color: #FFFFFF;
 }
 
 img {
@@ -263,8 +271,8 @@ ul li a {
 
 .mail {
   color: #383737;
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: 1.8rem;
+  font-weight: bold;
   font-family: 'assistantlight', sans-serif;
   text-decoration: none;
 }

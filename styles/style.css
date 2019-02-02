@@ -104,6 +104,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #EB673E;
+}
+
 img {
   display: block;
   margin-left: auto;
@@ -235,7 +239,16 @@ a.button1 {
  text-align: center;
 }
 
+a.button1:hover {
+ background-color: #EB673E;
+ }
+
 a.ionicons {
+  font-size: 2.4rem;
+}
+
+a.ionicons:hover {
+  color: #ffffff;
   font-size: 2.4rem;
 }
 
@@ -265,8 +278,8 @@ a.ionicons {
 
 .mail {
   color: #383737;
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: 1.8rem;
+  font-weight: bold;
   font-family: 'assistantlight', sans-serif;
   text-decoration: none;
 }
