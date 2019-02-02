@@ -277,13 +277,13 @@ ol.body_list li {
 
 dl {
   flex-flow: row wrap;
-  border: solid #EB673E;
+  /*-border: solid #EB673E;-->*/
   border-width: 1px 1px 1px 1px;
 }
 
 dl dt {
   flex-basis: 40%;
-  padding: 2px 4px;
+  padding: 6px 8px;
   background: #EB673E;
   text-align: left;
   color: #ffffff;
@@ -300,14 +300,15 @@ dl dd {
   flex-grow: 1;
   color: #383737;
   margin: 0;
-  padding: 2px 20px;
+  padding: 12px 20px;
   font-size: 1.6rem;
   font-family: 'assistant', sans-serif;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   line-height: .7rem;
 }
 
+.new_user > dd:nth-of-type(even) {
+  background-color: #efefef;
+}
 
 .hero {
   background-image: url("../images/gather_Devices.png");
