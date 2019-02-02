@@ -102,6 +102,7 @@ a {
   font-size: 1.6rem;
   font-family: 'assistant', sans-serif;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 a:hover {
@@ -133,6 +134,7 @@ section {
 
 .top {
   grid-area: top;
+  transition: 0.5s;
 }
 
 .logo_i {
@@ -185,7 +187,7 @@ li a {
   background-image: url("../images/hero_image_v02.png");
   background-color: #FDF2ED;
   background-size: cover;
-  background-position: center;
+  background-position: leftcenter;
   background-repeat: no-repeat;
   height= 50rem;
   grid-area: hero;

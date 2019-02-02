@@ -134,6 +134,7 @@ a {
   font-size: 1.6rem;
   font-family: 'assistant', sans-serif;
   text-decoration: none;
+  transition: 0.5s;
 }
 
 a:hover {
@@ -212,6 +213,7 @@ section {
 
 .top {
   grid-area: top;
+  transition: 0.5s;
 }
 
 
