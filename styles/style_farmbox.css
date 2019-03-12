@@ -746,7 +746,7 @@ dl dd {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(34 , max-content) 70px 150px;
+  grid-template-rows: 10vh 8vh 50vh 20vh 8vh repeat(32 , max-content) 70px 150px;
   grid-template-areas:
   ". top ."
   "banner banner banner"
@@ -770,8 +770,6 @@ dl dd {
   "row11 row11 row11"
   "row12 row12 row12"
   "row13 row13 row13"
-  "row14a row14a row14a"
-  "row14b row14b row14b"
   "row15 row15 row15"
   "row16 row16 row16"
   "row17 row17 row17"
@@ -796,7 +794,7 @@ dl dd {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 1fr 1fr 4fr 1fr;
-     grid-template-rows: 10vh 8vh 80vh repeat(31, max-content) 70px 150px;
+     grid-template-rows: 10vh 8vh 80vh repeat(30, max-content) 70px 150px;
      grid-template-areas:
      ". top top top top ."
      "banner banner banner banner banner banner"
@@ -816,7 +814,7 @@ dl dd {
      "row11 row11 row11 row11 row11 row11"
      "row12 row12 row12 row12 row12 row12"
      "row13 row13 row13 row13 row13 row13"
-     ". . row14a row14b . ."
+
 
      "row15 row15 row15 row15 row15 row15"
      "row16 row16 row16 row16 row16 row16"
