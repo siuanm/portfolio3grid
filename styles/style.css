@@ -211,10 +211,28 @@ li a {
   grid-area: case1;
 }
 
+.case2 {
+  background-color: #ffffff;
+  color: #383737;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.6rem;
+  grid-area: case2;
+}
+
 .green {
   background-color: #CDD7D0;
   margin-left: 20vw;
   padding: .5rem 40vw .5rem 20vw;
+}
+
+.green2 {
+  background-color: #CDD7D0;
+  text-align: center;
+  margin-right: 40vw;
+  padding: .5rem 30vw .5rem 60vw;
 }
 
 .case_text {
@@ -223,11 +241,25 @@ li a {
   margin-right: 2vw;
 }
 
+.case_text2 {
+  text-align: left;
+  margin-left: 10vw;
+  margin-right: 7vw;
+}
+
 .case1_pic {
   background-color: #f7f7f7;
   color: #383737;
+  padding-top: 2.6rem;
   padding-bottom: 2.6rem;
   grid-area: case1_pic;
+}
+
+.case2_pic {
+  background-color: #ffffff;
+  color: #383737;
+  padding-bottom: 2.6rem;
+  grid-area: case2_pic;
 }
 
 a.button1 {
@@ -291,7 +323,7 @@ a.ionicons:hover {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 70vh 5vh 5vh max-content auto 70px 150px;
+  grid-template-rows: 10vh 70vh 5vh 5vh max-content auto 5vh max-content auto 70px 150px;
   grid-template-areas:
   ". top ."
   "main_l main main_r "
@@ -299,6 +331,9 @@ a.ionicons:hover {
   "arrow arrow arrow"
   "case1_pic case1_pic case1_pic"
   "case1 case1 case1"
+    ". . ."
+  "case2_pic case2_pic case2_pic"
+  "case2 case2 case2"
   "footer1 footer1 footer1"
   "footer2 footer2 footer2";
 }
@@ -308,13 +343,15 @@ a.ionicons:hover {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 2fr 4fr 1fr;
-     grid-template-rows: 10vh 80vh 3rem 3rem max-content 70px 150px;
+     grid-template-rows: 10vh 80vh 3rem 3rem max-content 3rem max-content 70px 150px;
      grid-template-areas:
      ". top top top ."
      "main_l main hero hero main_r"
      ". . . . ."
      "arrow arrow arrow arrow arrow"
      "case1_pic case1_pic case1_pic case1 case1"
+      ". . . . ."
+     "case2 case2 case2_pic case2_pic case2_pic"
      "footer1 footer1 footer1 footer1 footer1"
      "footer2 footer2 footer2 footer2 footer2";
    }
@@ -345,7 +382,20 @@ a.ionicons:hover {
      padding: .5rem 18vw .5rem 8vw;
    }
 
+   .green2 {
+     background-color: #CDD7D0;
+     text-align: center;
+     margin-right: 50vw;
+     padding: .5rem 10vw .5rem 60vw;
+   }
+
    .case_text {
      margin-left: 10vw;
+   }
+
+   .case_text2 {
+     text-align: left;
+     margin-left: 5vw;
+     margin-right: 7vw;
    }
 }
