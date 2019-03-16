@@ -303,7 +303,7 @@ dl dd {
   padding: 12px 20px;
   font-size: 1.6rem;
   font-family: 'assistant', sans-serif;
-  line-height: .7rem;
+  line-height: 1.6rem;
 }
 
 .new_user > dd:nth-of-type(even) {
