@@ -74,7 +74,7 @@ h1 {
 }
 
 h2 {
-  color: #CF262B;
+  color: #5B2828;
   font-size: 3.2rem;
   font-weight: bold;
   font-family: 'CustomFont', abril_fatfaceregular, serif;
@@ -96,7 +96,7 @@ h4 {
 }
 
 h5 {
-  color: #CF262B;
+  color: #5B2828;
   font-size: 2.4rem;
   font-family: 'assistant', sans-serif;
   text-transform: uppercase;
@@ -254,7 +254,7 @@ ul li a {
 }
 
 .footer2 {
-  background-color: #C14382;
+  background-color: #5B2828;
   display: flex;
   flex-direction: column;
   align-items: center;
