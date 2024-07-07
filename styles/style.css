@@ -178,7 +178,7 @@ li a {
   align-items: left;
   justify-content: center;
   flex-direction: column;
-  background-color: #EFBCBC;
+  background-color: #FCE5DB;
   padding: 4rem;
   grid-area: main;
 }
@@ -194,7 +194,7 @@ li a {
 }
 
 .main_r {
-  border-right: 1.6rem solid #EB673E;
+  border-right: 1.6rem solid #EF2828;
   padding-bottom: 2.6rem;
   grid-area: main_r;
 }
