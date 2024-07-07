@@ -286,7 +286,7 @@ ul li a {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 40px 40px 40px 70px;
+  padding: 40px 40px 40px 160px;
   grid-area: case1;
 }
 
