@@ -168,7 +168,7 @@ li a {
 }
 
 .main_l {
-  border-left: 1.6rem solid #C14382;
+  border-left: 1.6rem solid #EFBC28;
   padding-bottom: 2.6rem;
   grid-area: main_l;
 }
@@ -178,7 +178,7 @@ li a {
   align-items: left;
   justify-content: center;
   flex-direction: column;
-  background-color: #FDF2ED;
+  background-color: #EFBCBC;
   padding: 4rem;
   grid-area: main;
 }
