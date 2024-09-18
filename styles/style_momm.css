@@ -231,7 +231,7 @@ section {
 
 .proto {
   color: #383737;
-  text-align: center;
+  text-align: left;
 }
 
 a.prototype:hover {
@@ -256,6 +256,20 @@ ul li a {
   text-decoration: none;
 }
 
+ul.a {
+  list-style-type: circle;
+}
+
+ul.a li {
+  float: left;
+  color: #383737;
+  font-size: 1.8rem;
+  font-family: 'assistantlight', sans-serif;
+  font-weight: normal;
+  line-height: 1.3;
+  margin-top: 1rem;
+}
+
 ol.body_list  {
   list-style-type: decimal;
   list-style-position: outside;
@@ -269,8 +283,9 @@ ol.body_list  {
 ol.body_list li {
   float: left;
   color: #383737;
-  font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-size: 1.8rem;
+  font-family: 'assistantlight', sans-serif;
+  font-weight: normal;
   line-height: 1.3;
   margin-top: 1rem;
 }
@@ -311,10 +326,10 @@ dl dd {
 }
 
 .hero {
-  background-image: url("../images/momm_devices.jpg");
+  background-image: url("../images/MomM/final.png");
   background-color: #ffffff;
-  background-size: 95%;
-  background-position: center;
+  background-size: 75%;
+  background-position: bottom;
   background-repeat: no-repeat;
   width: auto;
   grid-area: hero;
