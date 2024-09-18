@@ -75,7 +75,7 @@ h1 {
 }
 
 h2 {
-  color: #5B2828;
+  color: #CF262B;
   font-size: 4rem;
   font-weight: bold;
   font-family: 'abril_fatfaceregular', serif;
@@ -84,7 +84,7 @@ h2 {
 }
 
 h3 {
-  color: #EF2828;
+  color: #EB673E;
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'abril_fatfaceregular', serif;
@@ -128,7 +128,7 @@ section {
 }
 
 .pink {
-    color: #EF2828;
+    color: #C14382;
     font-weight: bold;
 }
 
@@ -168,7 +168,7 @@ li a {
 }
 
 .main_l {
-  border-left: 1.6rem solid #EFBC28;
+  border-left: 1.6rem solid #C14382;
   padding-bottom: 2.6rem;
   grid-area: main_l;
 }
@@ -178,13 +178,13 @@ li a {
   align-items: left;
   justify-content: center;
   flex-direction: column;
-  background-color: #FCE5DB;
+  background-color: #FDF2ED;
   padding: 4rem;
   grid-area: main;
 }
 
 .hero {
-  background-image: url("../images/hero_image_v05.png");
+  background-image: url("../images/hero_image_v02.png");
   background-color: #FDF2ED;
   background-size: cover;
   background-position: leftcenter;
@@ -194,7 +194,7 @@ li a {
 }
 
 .main_r {
-  border-right: 1.6rem solid #EF2828;
+  border-right: 1.6rem solid #EB673E;
   padding-bottom: 2.6rem;
   grid-area: main_r;
 }
@@ -220,6 +220,28 @@ li a {
   align-items: center;
   padding: 2.6rem;
   grid-area: case2;
+}
+
+.case3 {
+  background-color: #f7f7f7;
+  color: #383737;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.6rem;
+  grid-area: case3;
+}
+
+.case4 {
+  background-color: #ffffff;
+  color: #383737;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.6rem;
+  grid-area: case4;
 }
 
 .green {
@@ -262,6 +284,21 @@ li a {
   grid-area: case2_pic;
 }
 
+.case3_pic {
+  background-color: #f7f7f7;
+  color: #383737;
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+  grid-area: case3_pic;
+}
+
+.case4_pic {
+  background-color: #ffffff;
+  color: #383737;
+  padding-bottom: 2.6rem;
+  grid-area: case4_pic;
+}
+
 a.button1 {
  background-color: #CF262B;
  border: none;
@@ -295,7 +332,7 @@ a.ionicons:hover {
 }
 
 .footer2 {
-  background-color: #5B2828;
+  background-color: #C14382;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -323,13 +360,13 @@ a.ionicons:hover {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 10vh 70vh 5vh 5vh max-content auto 5vh max-content auto 70px 150px;
+  grid-template-rows: 10vh 70vh 5vh 5vh max-content auto 5vh max-content auto 5vh max-content auto 5vh max-content auto 70px 150px;
   grid-template-areas:
   ". top ."
   "main_l main main_r "
   ". . ."
   "arrow arrow arrow"
- "case3_pic case3_pic case3_pic"
+  "case3_pic case3_pic case3_pic"
   "case3 case3 case3"
     ". . ."
   "case4_pic case4_pic case4_pic"
@@ -349,13 +386,13 @@ a.ionicons:hover {
    .grid-container {
      display: grid;
      grid-template-columns: 1fr 4fr 2fr 4fr 1fr;
-     grid-template-rows: 10vh 80vh 3rem 3rem max-content 3rem max-content 70px 150px;
+     grid-template-rows: 10vh 80vh 3rem 3rem max-content 3rem max-content 3rem max-content 3rem max-content 70px 150px;
      grid-template-areas:
      ". top top top ."
      "main_l main hero hero main_r"
      ". . . . ."
      "arrow arrow arrow arrow arrow"
-   "case3_pic case3_pic case3_pic case3 case3"
+     "case3_pic case3_pic case3_pic case3 case3"
       ". . . . ."
      "case4 case4 case4_pic case4_pic case4_pic"
            ". . . . ."

@@ -74,7 +74,7 @@ h1 {
 }
 
 h2 {
-  color: #5B2828;
+  color: #CF262B;
   font-size: 3.2rem;
   font-weight: bold;
   font-family: 'CustomFont', abril_fatfaceregular, serif;
@@ -82,7 +82,7 @@ h2 {
 }
 
 h3 {
-  color: #EF2828;
+  color: #EB673E;
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'CustomFont', abril_fatfaceregular, serif;
@@ -96,7 +96,7 @@ h4 {
 }
 
 h5 {
-  color: #5B2828;
+  color: #CF262B;
   font-size: 2.4rem;
   font-family: 'assistant', sans-serif;
   text-transform: uppercase;
@@ -153,12 +153,12 @@ section {
 }
 
 .orange {
-    color: #EF2828;
+    color: #EB673E;
     font-weight: bold;
 }
 
 .orange_big {
-    color: #EF2828;
+    color: #EB673E;
     font-size: 2rem;
 }
 
@@ -254,7 +254,7 @@ ul li a {
 }
 
 .footer2 {
-  background-color: #5B2828;
+  background-color: #C14382;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -286,7 +286,7 @@ ul li a {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  padding: 40px 40px 40px 160px;
+  padding: 40px 40px 40px 70px;
   grid-area: case1;
 }
 
