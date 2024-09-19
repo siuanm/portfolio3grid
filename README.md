@@ -1,3 +1,3 @@
 # Siuan McGahan | Portfolio
 
-A showcase of my creative projects.
+A showcase of my UX design projects.
