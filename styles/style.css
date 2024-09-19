@@ -137,6 +137,14 @@ section {
     font-weight: bold;
 }
 
+.small {
+  color: #383737;
+  font-size: 2rem;
+  font-weight: normal;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.5;
+}
+
 .top {
   grid-area: top;
   transition: 0.5s;
@@ -189,7 +197,7 @@ li a {
 }
 
 .hero {
-  background-image: url("../images/hero_image_v02.png");
+  background-image: url("../images/hero_image_v04.png");
   background-color: #FDF2ED;
   background-size: cover;
   background-position: leftcenter;
