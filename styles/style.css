@@ -75,7 +75,7 @@ h1 {
 }
 
 h2 {
-  color: #CF262B;
+  color: #EF2828;
   font-size: 4rem;
   font-weight: bold;
   font-family: 'abril_fatfaceregular', serif;
@@ -84,7 +84,7 @@ h2 {
 }
 
 h3 {
-  color: #EB673E;
+  color: #EF2828;
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'abril_fatfaceregular', serif;
@@ -129,6 +129,11 @@ section {
 
 .pink {
     color: #C14382;
+    font-weight: bold;
+}
+
+.orange {
+    color: #EB673E;
     font-weight: bold;
 }
 
@@ -194,7 +199,7 @@ li a {
 }
 
 .main_r {
-  border-right: 1.6rem solid #EB673E;
+  border-right: 1.6rem solid #EF2828;
   padding-bottom: 2.6rem;
   grid-area: main_r;
 }
@@ -300,7 +305,7 @@ li a {
 }
 
 a.button1 {
- background-color: #CF262B;
+ background-color: #EF2828;
  border: none;
  border-radius: 8px;
  color: white;
