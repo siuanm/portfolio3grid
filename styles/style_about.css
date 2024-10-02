@@ -82,7 +82,7 @@ h2 {
 }
 
 h3 {
-  color: #EB673E;
+  color: #EF2828;
   font-size: 2.4rem;
   font-weight: bold;
   font-family: 'CustomFont', abril_fatfaceregular, serif;
@@ -105,7 +105,7 @@ h5 {
 }
 
 a {
-  color: #C14382;
+  color: #9951E0;
   font-size: 1.6rem;
   font-family: 'assistant', sans-serif;
   text-decoration: none;
@@ -154,6 +154,16 @@ section {
 
 .orange {
     color: #EB673E;
+    font-weight: bold;
+}
+
+.pink2 {
+    color: #F78D8D;
+    font-weight: bold;
+}
+
+.pink3 {
+    color: #FAB9B9;
     font-weight: bold;
 }
 
