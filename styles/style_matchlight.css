@@ -6,52 +6,7 @@ html {
   font-size: 8px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Assistant:300,400,600,italic|Raleway:400,600,700|Abril_fatface|);
-
-@font-face {
-    font-family: 'assistantbold';
-    src: url('fonts/assistant-bold-webfont.woff2') format('woff2'),
-         url('fonts/assistant-bold-webfont.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'assistantextrabold';
-    src: url('fonts/assistant-extrabold-webfont.woff2') format('woff2'),
-         url('fonts/assistant-extrabold-webfont.woff') format('woff');
-  }
-
-@font-face {
-    font-family: 'assistantextralight';
-    src: url('fonts/assistant-extralight-webfont.woff2') format('woff2'),
-         url('fonts/assistant-extralight-webfont.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'assistantlight';
-    src: url('fonts/assistant-light-webfont.woff2') format('woff2'),
-         url('fonts/assistant-light-webfont.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'assistantregular';
-    src: url('fonts/assistant-regular-webfont.woff2') format('woff2'),
-         url('fonts/assistant-regular-webfont.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'assistantsemibold';
-    src: url('fonts/assistant-semibold-webfont.woff2') format('woff2'),
-         url('fonts/assistant-semibold-webfont.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'abril_fatfaceregular';
-    src: url('fonts/abrilfatface-regular-webfont.woff2') format('woff2'),
-         url('fonts/abrilfatface-regular-webfont.woff') format('woff');
-
-}
-
-
+@import url(https://fonts.googleapis.com/css?family=Source Code Pro:300,400,600|Poppins:400,600,700|Lato:400,600,700);
 
 body {
   background-color: #ffffff;
@@ -60,17 +15,17 @@ body {
 p {
   color: #383737;
   font-size: 1.8rem;
-  font-family: 'assistantlight', sans-serif;
-  font-weight: normal;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 300;
   line-height: 1.3;
   margin-top: 1rem;
 }
 
 a.return {
-  color: #C14382;
+  color: #FF2306;
   font-weight: bold;
-  font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-size: 1.8rem;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.3;
   margin-top: 1rem;
   justify-content: right;
@@ -93,37 +48,36 @@ h1 {
   color: #383737;
   font-size: 3rem;
   font-weight: normal;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Lato', sans-serif;
   line-height: 1.5;
-
 }
 
 h2 {
-  color: #EF2828;
-  font-size: 3.2rem;
-  font-weight: bold;
-  font-family: 'abril_fatfaceregular', serif;
+  color: #000000;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
   margin-top: .5rem;
 }
 
 h3 {
-  color: #EF2828;
+  color: #FF2306;
   font-size: 2.4rem;
   font-weight: bold;
-  font-family: 'abril_fatfaceregular', serif;
+  font-family: 'Lato', sans-serif;
 }
 
 h4 {
   color: #ffffff;
   font-size: 1.3rem;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.3;
 }
 
 h5 {
-  color: #EF2828;
+  color: #FF2306;
   font-size: 2.4rem;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   text-transform: uppercase;
   text-align: center;
   line-height: 1.3;
@@ -131,7 +85,7 @@ h5 {
 
 h6 {
   color: #000000;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.3;
   background-color: #FCE5DB;
   border: none;
@@ -143,7 +97,7 @@ h6 {
 
 h7 {
   color: #000000;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.3;
   background-color: #FDF2ED;
   border: none;
@@ -154,9 +108,9 @@ h7 {
 }
 
 a {
-  color: #9951E0;
+  color: #383737;
   font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   text-decoration: none;
   transition: 0.5s;
 }
@@ -214,6 +168,12 @@ img.img_c {
 
 section {
   color: #383737;
+}
+
+.highlight {
+  background-color: #D8BAEC;
+  font-weight: 700;
+  padding: .1rem .2rem .1rem .2rem;
 }
 
 .pink {
@@ -288,7 +248,7 @@ ul.a li {
   float: left;
   color: #383737;
   font-size: 1.8rem;
-  font-family: 'assistantlight', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: normal;
   line-height: 1.3;
   margin-top: 1rem;
@@ -310,7 +270,7 @@ ul.b li {
   float: center;
   color: #383737;
   font-size: 1.8rem;
-  font-family: 'assistantlight', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: normal;
   line-height: 1.3;
   margin-top: 1rem;
@@ -330,7 +290,7 @@ ol.body_list li {
   float: left;
   color: #383737;
   font-size: 1.8rem;
-  font-family: 'assistantlight', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: normal;
   line-height: 1.3;
   margin-top: 1rem;
@@ -349,7 +309,7 @@ dl dt {
   text-align: left;
   color: #ffffff;
   font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   font-weight: bold;
 }
 dl dt::after {
@@ -363,7 +323,7 @@ dl dd {
   margin: 0;
   padding: 12px 20px;
   font-size: 1.6rem;
-  font-family: 'assistant', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.6rem;
 }
 
@@ -394,14 +354,14 @@ dl dd {
 }
 
 .green_right {
-  background-color: #CDD7D0;
+  background-color: #D8BAEC;
   margin-left: 60vw;
   text-align: center;
   padding: .5rem;
 }
 
 .green_left {
-  background-color: #CDD7D0;
+  background-color: #D8BAEC;
   margin-right: 60vw;
   text-align: center;
   padding: .5rem;
@@ -421,15 +381,17 @@ dl dd {
 }
 
 .banner {
-  background-color: #fce5db;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+  padding-left: 9.2rem;
+  border-bottom: 1px solid #000000;
   grid-area: banner;
 }
 
 .footer1 {
-  background-color: #fce5db;
+  background-color: #D8BAEC;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -437,7 +399,7 @@ dl dd {
 }
 
 .footer2 {
-  background-color: #C14382;
+  background-color: #343333;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -458,7 +420,7 @@ dl dd {
   color: #383737;
   font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'assistantlight', sans-serif;
+  font-family: 'Source Code Pro', monospace;
   text-decoration: none;
 }
 
@@ -923,8 +885,8 @@ dl dd {
    p {
      color: #383737;
      font-size: 1.8rem;
-     font-family: 'assistantlight', sans-serif;
-     font-weight: normal;
+     font-family: 'Source Code Pro', monospace;
+     font-weight: 300;
      line-height: 1.3;
      margin-top: 1rem;
    }
