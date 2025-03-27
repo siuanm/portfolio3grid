@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merienda:wght@400;700;900&family=Poppins:wght@400;500;600;700;900&display=swap');
+
+@font-face {
+    font-family: 'Basteleur-Bold';
+    src: url('fonts/Basteleur-Bold.otf');
+}
+
+:root {
+    --font-primary: 'Courier New', Courier, monospace;
+    --font-secondary: 'Lato', sans-serif;
+    --font-accent: 'Poppins', sans-serif;
+    --font-basteleur: 'Basteleur-Bold', sans-serif;
+    --font-merienda: 'Merienda', cursive;
+
+     /* Colors */
+     --color-secondary: #ceb5ab;
+     --color-accent: #c0675b;
+     --color-background: #FDF3F0;
+     --color-primary: #2C213F;
+     --color-white: #c05839;
+     --color-highlight: #d5fab0;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-primary);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Sticky Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    color: var(--color-white);
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+    background-color: var(--color-white);
+    background: rgb(255, 255, 255);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: var(--color-accent); 
+    font-style: normal; 
+    font-family: var(--font-merienda);  
+    font-weight: 900; 
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    font-family: var(--font-primary);
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Hero Section */
+.hero {
+    color: var(--color-primary);
+    text-align: left;
+    margin-top: 60px;
+    position: relative;
+    height: 80vh;
+    min-height: 400px;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+    min-width: 700px;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(201, 204, 198, 0.3);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Ensures content appears above the overlay */
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.hero .btn {
+    display: inline-block;
+    background: white;
+    color: var(--color-accent);
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.hero .btn:hover {
+    background: #fff7e6;
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+    text-align: left;
+}
+
+.section h2 {
+    font-size: 2rem;
+    font-family: var(--font-secondary);
+    margin-bottom: 20px;
+}
+
+.section h1 {
+    font-size: 9rem;
+    font-weight: 900;
+    font-family: var(--font-accent);
+    letter-spacing: -0.1em;
+    line-height: .75;
+    margin-bottom: 20px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--color-primary);
+    transition: 0.3s;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
+
+h1 {
+    font-family: var(--font-accent);
+    font-weight: 900;
+    color: var(--color-primary);
+    letter-spacing: -0.1em;
+}
+
+/* If you need to be more specific, you can target the hero h1 */
+.hero h1 {
+    font-family: var(--font-accent);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    letter-spacing: -0.07em;
+    line-height: 0.8;
+} 
+
+h2 {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    color: var(--color-primary);
+    letter-spacing: -0.05em;
+  
+}
+
+
+.hero h2 {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    padding-right: 10px;
+    padding-left: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px; 
+    /* background-color: rgba(239, 240, 238, 0.5); Adjust opacity as needed */
+} 
+
+h3 {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-primary);
+}
+
+.hero p {
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    /*background-color:  rgba(253, 243, 240, 0.5);  Adjust opacity as needed * 
+    padding-right: 25px;
+    padding-left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block; /* This makes the background only as wide as the text  */
+    border-radius: 4px; 
+    background-color: rgba(239, 240, 238, 0.5); /* Adjust opacity as needed */
+} 
+
+.first-name {
+    color: var(--color-secondary);
+    font-family: var(--font-merienda);
+    font-weight: 900;
+    letter-spacing: -0.10em;
+}
+.last-name {
+    color: var(--color-accent);
+    font-weight: 500;
+    font-style: italic;
+}
+.history {
+    display: block;
+    margin-top: 15px;
+    font-family: var(--font-primary);
+    font-size: .75rem;
+    font-weight: 100;
+    color: var(--color-primary);
+    letter-spacing: -0.05em;
+    font-style: italic;
+    line-height: 1;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px; /* Adds consistent spacing between icons */
+}
+
+.social-icons a {
+    color: var(--color-accent);
+    font-size: 24px; /* Makes icons a bit larger */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-secondary);
+    transform: translateY(-3px); /* Adds a slight lift effect on hover */
+}
+
+.red-dot {
+    color: var(--color-accent);
+    margin-left: 4px;
+    font-size: 3rem;
+}
+
+.skills {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.hero-content {
+    position: relative;
+    padding-right: 30px;
+    padding-left: 36px;
+    padding-bottom: 30px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.about-quote {
+    max-width: 66ch; /* limits to approximately 70 characters per line */
+    margin: 0 auto; /* centers the blockquote */
+    text-align: left; /* for better readability of longer text */
+    padding: 20px;
+    /*background-color: rgba(253, 243, 240, 0.5);*/
+}
+
+.about-quote p {
+    margin: 0 0 1em 0; /* adds space between paragraphs */
+    line-height: 1.6; /* improves readability */
+}
+
+/* Project Grid */
+.projects {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    margin: 0 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--color-purple);
+   
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;  /* Allow height to adjust based on image ratio */
+    object-fit: contain;  /* Show full image without cropping */
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-content h3 {
+    margin: 0 0 0 0;
+    font-size: 1.1rem;
+}
+
+.category, .year {
+    color: #666;
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.highlight {
+    background-color: var(--color-highlight);
+    padding: 2px 5px; /* Add some padding around the text */
+    border-radius: 3px; /* Optional: adds slightly rounded corners */
+}
+
+.logo-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0; /* Reduced from 40px */
+}
+
+.logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px; /* Reduced from 40px if needed */
+}
+
+.logo-row img {
+    width: 120px; /* Set your desired logo size */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Optional: Add hover effect */
+.logo-row img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+#logos {
+    background-color: #ffffff;
+    padding: 10px 0; /* Adding some vertical padding for spacing */
+}
+
+#services {
+    background-color: rgba(206, 181, 171, 0.1);
+    padding: 40px 0;
+    margin-top: -40px; /* Reduces space above the services section */
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    margin-top: 0;
+    color: var(--color-purple); /* Using your purple color */
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.service-card ul {
+    padding-left: 20px;
+}
+
+.service-card li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* For the middle/featured card */
+.service-card.featured {
+    transform: scale(1.05);
+    border-top: 4px solid var(--color-red); /* Your red color */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.service-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .service-card, .service-card.featured {
+        max-width: 100%;
+        margin-bottom: 20px;
+        transform: none;
+    }
+    
+    .service-card:hover, .service-card.featured:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.quote-section {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 40px 0;
+    text-align: center;  /* Change back to center alignment */
+}
+
+.quote-section .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.quote-content {
+    font-family: var(--font-merienda);
+    font-size: 1.8rem;
+    max-width: 1000px;
+    margin: 0 auto;  /* Centers the content block */
+    line-height: 1.4;
+}
+
+.quote-section .quote-author {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+#projects {
+    background-color: rgba(201, 204, 198, 0.3);
+    padding: 60px 0;
+}
+
+/* Update the contact section and social icons alignment */
+#contact .container {
+    text-align: left;  /* Keep the heading left-aligned */
+}
+
+#contact .social-icons {
+    justify-content: center;  /* Centers the icons horizontally */
+    margin: 30px auto;  /* Adds some vertical spacing and centers the container */
+}
+
+
+
