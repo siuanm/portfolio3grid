@@ -391,6 +391,38 @@ h3 {
     margin-bottom: 2rem;
 }
 
+/* Responsive adjustments for project cards */
+@media (max-width: 1200px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* One card per row */
+        gap: 2rem; /* Increased spacing between cards */
+        max-width: 500px; /* Limit maximum width on mobile */
+        margin: 0 auto 2rem auto; /* Center the grid */
+    }
+    
+    .card {
+        max-width: 100%; /* Allow cards to fill the container width */
+    }
+    
+    .card img {
+        max-height: 300px; /* Limit image height on mobile */
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
 /* Cards */
 .card {
     border: 1px solid #e0e0e0;
@@ -463,7 +495,7 @@ h3 {
 .logo-grid {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0; /* Reduced from 40px */
+    padding: 20px 0;
 }
 
 .logo-row {
@@ -471,19 +503,36 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 40px;
-    margin-bottom: 20px; /* Reduced from 40px if needed */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows logos to wrap */
 }
 
 .logo-row img {
-    width: 120px; /* Set your desired logo size */
+    width: 120px;
     height: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* Optional: Add hover effect */
-.logo-row img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo-row {
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .logo-row img {
+        width: calc(50% - 10px); /* Two logos per row */
+        max-width: 140px; /* Control maximum size */
+    }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .logo-row img {
+        width: calc(50% - 10px);
+        max-width: 100px; /* Slightly smaller on very small screens */
+    }
 }
 
 #logos {
