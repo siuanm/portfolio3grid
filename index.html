@@ -1,300 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siuan McGahan - Product Designer</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siuan McGahan — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & TOKENS ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1c1c1a;
+  --ink-mid: #5a5a54;
+  --ink-light: #9a9a92;
+  --rule: #e2e2dc;
+  --bg: #ffffff;
+  --sidebar-bg: #ffffff;
+  --accent: #b89a5e;
+  --accent-hover: #9a7f48;
+  --sidebar-w: 280px;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --sans-headline: 'Outfit', 'DM Sans', system-ui, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --layout-pad-top: 44px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── LAYOUT SHELL ───────────────────────────────────── */
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────── */
+aside {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  border-right: none;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar-top {
+  padding: var(--layout-pad-top) 32px 28px;
+  border-bottom: none;
+  flex-shrink: 0;
+}
+
+.sidebar-name {
+  font-family: var(--sans-headline);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+a.sidebar-name {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sidebar-title {
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mid);
+  line-height: 1.7;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 24px 0 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ── Accordion ── */
+.acc-group { border-bottom: none; }
+
+.acc-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 13px 32px;
+  font-family: var(--sans);
+  font-size: 0.67rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mid);
+  transition: color 0.2s;
+  text-align: left;
+}
+.acc-trigger .acc-label {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+.acc-trigger .acc-arrow {
+  margin-left: auto;
+  margin-top: 0.2em;
+  flex-shrink: 0;
+}
+.acc-trigger:hover { color: var(--ink); }
+.acc-trigger.open { color: var(--ink); }
+
+.acc-arrow {
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+.acc-arrow::before,
+.acc-arrow::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  border-radius: 1px;
+}
+.acc-arrow::before { width: 8px; height: 1px; top: 50%; left: 3px; transform: translateY(-50%); }
+.acc-arrow::after  { width: 1px; height: 8px; left: 50%; top: 3px; transform: translateX(-50%); transition: opacity 0.25s, transform 0.25s; }
+.acc-trigger.open .acc-arrow::after { opacity: 0; transform: translateX(-50%) rotate(90deg); }
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease);
+}
+.acc-body.open { max-height: 400px; }
+
+.acc-body a {
+  display: block;
+  padding: 7px 32px 7px 44px;
+  font-family: var(--serif);
+  font-size: 0.975rem;
+  color: var(--ink-mid);
+  text-decoration: none;
+  transition: color 0.15s, padding-left 0.2s;
+  position: relative;
+}
+.acc-body a::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  width: 5px;
+  height: 1px;
+  background: var(--accent);
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.acc-body a:hover { color: var(--ink); padding-left: 50px; }
+.acc-body a:hover::before { opacity: 1; }
+.acc-body a.active { color: var(--ink); font-style: italic; }
+.acc-body a.active::before { opacity: 1; }
+
+.sidebar-footer-links {
+  padding: 20px 32px 0;
+  border-top: none;
+  flex-shrink: 0;
+}
+.sidebar-footer-links a {
+  display: block;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mid);
+  text-decoration: none;
+  padding: 7px 0;
+  transition: color 0.15s;
+}
+.sidebar-footer-links a:hover { color: var(--accent); }
+.sidebar-footer-links a.active { color: var(--ink); font-weight: 500; }
+
+/* ─── MOBILE TOPBAR ──────────────────────────────────── */
+.topbar {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 56px;
+  background: var(--sidebar-bg);
+  border-bottom: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 200;
+}
+
+.topbar-name {
+  font-family: var(--sans-headline);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 1px;
+  transition: transform 0.3s var(--ease), opacity 0.2s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.drawer {
+  display: none;
+  position: fixed;
+  top: 56px; right: 0; bottom: 0;
+  width: min(300px, 90vw);
+  background: var(--sidebar-bg);
+  border-left: none;
+  z-index: 190;
+  transform: translateX(110%);
+  transition: transform 0.35s var(--ease);
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+.drawer.open { transform: translateX(0); }
+
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 56px 0 0 0;
+  background: rgba(28,28,26,0.28);
+  z-index: 180;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+/* ─── MAIN ───────────────────────────────────────────── */
+main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--layout-pad-top) 80px 120px 32px;
+}
+
+/* ─── PROJECT SECTION ────────────────────────────────── */
+.project-section { margin-bottom: 96px; }
+.project-section:last-child { margin-bottom: 0; }
+
+.section-eyebrow {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--sans-headline);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 52px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ─── PROJECT ENTRY ──────────────────────────────────── */
+.project-entry {
+  margin-bottom: 72px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+.project-entry.visible { opacity: 1; transform: none; }
+.project-entry:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.project-entry--hidden { display: none !important; }
+
+.project-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.project-year {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+.project-cat {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-light);
+}
+
+.project-title-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 10px 20px;
+  margin-bottom: 24px;
+}
+.project-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  margin-bottom: 0;
+  min-width: 0;
+}
+.project-next {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.project-next:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); }
+
+/* ─── CAROUSEL ───────────────────────────────────────── */
+.carousel {
+  position: relative;
+  margin-bottom: 28px;
+  user-select: none;
+}
+
+.carousel-track-wrap {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.42s var(--ease);
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slide-inner {
+  position: relative;
+  background: #eaeae6;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #aaa;
+  text-align: center;
+  padding: 24px;
+}
+
+.carousel-slide.portrait .slide-inner { aspect-ratio: 3/4; }
+.carousel-slide.square .slide-inner   { aspect-ratio: 1/1; }
+
+.slide-inner:has(img) { padding: 0; }
+
+/* real images */
+.slide-inner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#car-dreadful {
+  max-width: min(100%, 85vh);
+  margin-inline: auto;
+}
+#car-dreadful .slide-inner img {
+  object-fit: contain;
+}
+#car-smiled {
+  max-width: min(100%, calc(85vh * 3 / 4));
+  margin-inline: auto;
+}
+#car-smiled .slide-inner img {
+  object-fit: contain;
+}
+#car-ferment .slide-inner img {
+  object-fit: contain;
+}
+#car-lotr .slide-inner img {
+  object-fit: contain;
+}
+#car-riddick .slide-inner img {
+  object-fit: contain;
+}
+#car-deloitte .slide-inner img {
+  object-fit: contain;
+}
+#car-mobile-apps .slide-inner img {
+  object-fit: contain;
+}
+#car-mobile-apps .carousel-slide:nth-child(1) .slide-inner img {
+  object-fit: cover;
+}
+#car-operator-x .slide-inner img {
+  object-fit: contain;
+}
+#car-operator-x .carousel-slide:nth-child(1) .slide-inner img,
+#car-operator-x .carousel-slide:nth-child(2) .slide-inner img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s, border-color 0.2s;
+  backdrop-filter: blur(4px);
+}
+.carousel-btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+.carousel-btn svg { width: 14px; height: 14px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 12px;
+}
+.carousel-dots button {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: var(--rule);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-dots button.active { background: var(--accent); transform: scale(1.3); }
+
+.carousel.single .carousel-btn,
+.carousel.single .carousel-dots { display: none; }
+
+/* ─── STATEMENT ──────────────────────────────────────── */
+.project-statement { max-width: 640px; }
+
+.project-statement p {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+.project-statement p:last-child { margin-bottom: 0; }
+.project-statement strong { color: var(--ink); font-weight: 500; }
+.project-statement em { font-family: var(--serif); font-style: italic; font-size: 1em; }
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+.project-tags span {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 9px;
+  border: 1px solid var(--rule);
+  color: var(--ink-light);
+  border-radius: 1px;
+}
+
+.press-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.press-link:hover { color: var(--accent-hover); }
+
+/* ─── INFO / CV ──────────────────────────────────────── */
+.info-page { display: none; }
+.info-page.active { display: block; }
+
+.info-page h2 {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 0.62rem;
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin: 0 0 28px;
+  padding: 0;
+  border-bottom: none;
+}
+
+.info-block { max-width: 640px; margin-bottom: 48px; }
+.info-block h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.info-block p {
+  font-size: 0.87rem;
+  color: var(--ink-mid);
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+
+.cv-section-title {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin: 32px 0 14px;
+}
+.cv-row {
+  display: grid;
+  grid-template-columns: minmax(90px, 118px) 1fr;
+  gap: 0 20px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+.cv-year { color: var(--ink-light); font-size: 0.78rem; padding-top: 2px; }
+.cv-item { color: var(--ink-mid); line-height: 1.7; }
+.cv-item strong { color: var(--ink); font-weight: 500; }
+.cv-text {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.75;
+  margin: 0 0 8px;
+  max-width: 640px;
+}
+.cv-text:last-child { margin-bottom: 0; }
+.cv-subhead {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-light);
+  margin: 20px 0 10px;
+}
+.cv-subhead:first-of-type { margin-top: 4px; }
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+.contact-list li {
+  font-size: 0.87rem;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.contact-list li:last-child { margin-bottom: 0; }
+.contact-list-label {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-light);
+  margin-bottom: 5px;
+}
+.contact-list a {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.contact-list a:hover { color: var(--accent); }
+
+/* ─── SCROLL OFFSET ──────────────────────────────────── */
+.anchor { scroll-margin-top: 40px; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 860px) {
+  aside { display: none; }
+  .topbar { display: flex; }
+  .drawer { display: block; }
+  .drawer-overlay { display: block; }
+  .shell { display: block; }
+  main { padding: 80px 24px 80px; }
+  .carousel-btn { width: 32px; height: 32px; }
+}
+@media (max-width: 540px) {
+  main { padding: 72px 16px 60px; }
+  .project-title { font-size: 1.2rem; }
+}
+</style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#home">S.</a>
-            </div>
-            <button class="hamburger" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">about</a></li>
-               <li><a href="#projects">projects</a></li>
-                <!--<li><a href="#services">services</a></li>-->
-                <li><a href="#contact">contact</a></li>
-                <li><a href="siuan_mcgahan_resume.pdf" target="_blank">resume</a></li>
-                
-              
-            </ul>
-        </div>
-    </nav>
+<!-- MOBILE TOPBAR -->
+<header class="topbar" id="topbar">
+  <span class="topbar-name">Siuan McGahan</span>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
 
-    <section class="hero">
-        <img src="images/Hero5.png" alt="Hero background" class="hero-background">
-        <div class="container">
-            <div class="hero-content">
-                <h1>
-                    <span class="first-name">Siuan</span><br><span class="last-name">McGahan</span><span class="red-dot"> .</span>
-                    <br><span class="history">(ex Deloitte, NASA-JPL, Universal, Champlain College, Weta)</span></h1>
-                <h2>Product Designer | Artist | Educator</h2>
-                <ul>Expertise: <LI>Lean UX Research</LI> 
-                <LI> Design + AI</LI>
-                <LI> Leadership + Facilitation</LI></p>
-                    <h3><span class="highlight">TL;DR: Eng > VFX > VR > UX > AI</span></h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/siuan" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/siuanm" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:x@siuan.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<nav class="drawer" id="drawer"></nav>
+
+<!-- SHELL -->
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <div class="sidebar-top">
+      <a href="#" class="sidebar-name" id="sidebarHome" aria-label="Siuan McGahan — Home">Siuan McGahan</a>
+      <div class="sidebar-title">Artist ·  Designer <BR> Educator</div>
+    </div>
+    <div class="sidebar-nav">
+      <div id="sidebarAccordion">
+        <div class="acc-group">
+          <button class="acc-trigger" data-target="acc-art"><span class="acc-label">Digital Media Practice</span><span class="acc-arrow"></span></button>
+          <div class="acc-body" id="acc-art">
+            <a href="#" data-project="dreadful">The Dreadful Imminency</a>
+            <a href="#" data-project="smiled">I smiled, —</a>
+            <a href="#" data-project="ferment">All Physics In A Ferment</a>
+          </div>
         </div>
+        <div class="acc-group">
+          <button class="acc-trigger" data-target="acc-vfx"><span class="acc-label">Moving Image</span><span class="acc-arrow"></span></button>
+          <div class="acc-body" id="acc-vfx">
+            <a href="#" data-project="lotr">Lord of the Rings</a>
+            <a href="#" data-project="riddick">Chronicles of Riddick</a>
+          </div>
+        </div>
+        <div class="acc-group">
+          <button class="acc-trigger" data-target="acc-ux"><span class="acc-label">Experience Design</span><span class="acc-arrow"></span></button>
+          <div class="acc-body" id="acc-ux">
+            <a href="#" data-project="operator-x">Operator X</a>
+            <a href="#" data-project="deloitte">Deloitte</a>
+            <a href="#" data-project="mobile-apps">Various Mobile Apps</a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-footer-links" id="sidebarFooterLinks">
+        <a href="#" data-page="info">Info</a>
+        <a href="#" data-page="cv">CV</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main id="mainContent">
+
+    <!-- ══ DIGITAL MEDIA PRACTICE ══ -->
+    <section class="project-section anchor" id="sec-art">
+      <div class="section-eyebrow">Projects</div>
+      <h2 class="section-title">Digital Media Practice</h2>
+
+      <article class="project-entry anchor" id="dreadful">
+        <div class="project-label">
+          <span class="project-year">2017</span>
+          <span class="project-cat">VR Installation</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">The Dreadful Imminency of Another</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-dreadful">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide square"><div class="slide-inner"><img src="images/Dreadful_Imminecy_01.jpg" alt="Installation view — VR headset on chair" loading="eager"></div></div>
+            <div class="carousel-slide square"><div class="slide-inner"><img src="images/Dreadful_Imminecy_02.jpg" alt="CG interior — virtual environment" loading="eager"></div></div>
+            <div class="carousel-slide square"><div class="slide-inner"><img src="images/Dreadful_Imminecy_03.jpg" alt="Installation view" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p><em>The Dreadful Imminency of Another</em> is an immersive VR installation exploring the intersection of language, gender, and identity. Using virtual spaces to interrogate the mundane, the work reveals how everyday language quietly perpetuates patriarchal constructs.</p>
+          <p>Drawing on feminist philosophy and sociological observation, the project immerses viewers in a CG environment where the subtleties of language expose the complicity in our own oppression. It challenges us to confront the constructs we accept — and the realities they shape.</p>
+          <a class="press-link" href="https://www.uvm.edu/uvmnews/news/uvm-event-makes-mash-art-and-technology#.W9OJNaWYhgg.twitter" target="_blank" rel="noopener noreferrer">Press: UVM Today ↗</a>
+          <div class="project-tags"><span>VR Installation</span><span>Feminist Philosophy</span><span>Language</span><span>Gender</span><span>Identity</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="smiled">
+        <div class="project-label">
+          <span class="project-year">2016</span>
+          <span class="project-cat">Photographic Series · 12 Portraits</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">I smiled, — for what had I to fear?</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-smiled">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide portrait"><div class="slide-inner"><img src="images/Ismiled_01.jpg" alt="Portrait — Kitchen, unicycle, birds" loading="eager"></div></div>
+            <div class="carousel-slide portrait"><div class="slide-inner"><img src="images/Ismiled_02.jpg" alt="Portrait — Kitchen, swans, parasol" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>This series of twelve portraits, created with digitally composited photography, delves into the intricate interplay between contemporary, performative gender roles and their historical roots in "women's work" within the domestic sphere.</p>
+          <p>By juxtaposing modern identity constructs with echoes of traditional labor and spaces, the work interrogates how societal expectations shape — and are shaped by — our evolving notions of femininity, labor, and place.</p>
+          <p><strong>Three prints are held in the National Collection of Ireland.</strong></p>
+          <div class="project-tags"><span>Digital Photography</span><span>Compositing</span><span>Gender Studies</span><span>National Collection of Ireland</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="ferment">
+        <div class="project-label">
+          <span class="project-year">2016</span>
+          <span class="project-cat">VR Self-Portrait · 360°</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">All Physics In A Ferment</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-ferment">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/All_Physics_in_a_Ferment_01.jpg" alt="360° VR still — kitchen with farm animals" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/All_Physics_in_a_Ferment_02.jpg" alt="All Physics In A Ferment — still 2" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/All_Physics_in_a_Ferment_03.jpg" alt="All Physics In A Ferment — still 3" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p><em>All Physics In A Ferment</em> is a VR self-portrait that extends the themes of the photographic series <em>I smiled, — for what had I to fear</em>, together presented as <em>All That We See Or Seem</em>.</p>
+          <p>Casting myself and a collection of farm animals in a modern fairy tale, I use a 360-degree, live-action, infinitely looping format to examine the performativity of gender roles and the legacies shaping notions of identity and selfhood.</p>
+          <div class="project-tags"><span>360° Video</span><span>VR Self-Portrait</span><span>Live Action</span><span>Gender Performativity</span></div>
+        </div>
+      </article>
     </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>About Me...</h2> 
-            <P><HR></P>
-            <blockquote class="about-quote">
-                <p>I have spent my career exploring the spaces where <span class="highlight">technology + creativity</span> intersect.
-                    
-                    <p>From <span class="highlight">VFX</span> on <span class="italic">The Lord of the Rings
-                </span> to mission simulation and 
-                    instrument modeling at <span class="highlight">NASA-JPL</span> —  I thrive on bridging the gap between 
-                    people and technology. </p>
+    <!-- ══ MOVING IMAGE ══ -->
+    <section class="project-section anchor" id="sec-vfx">
+      <div class="section-eyebrow">Projects</div>
+      <h2 class="section-title">Moving Image</h2>
 
-                    <p>More recently, I specialize in human-centered design, with a focus on <span class="highlight">UX
-                         strategy</span> for complex, enterprise B2B 
-                        applications — particularly in the domains of <span class="highlight">cybersecurity</span> 
-                        and <span class="highlight">AI</span>. </P>
-                        
-                        <P>I've led design teams at <span class="highlight">Deloitte</span> and partnered with 
-                        startups to help scale their product offerings, always keeping usability and clarity at the core.</p>
-                    
-                    <p> I'm especially passionate about emerging technologies, including the ethical and thoughtful use of 
-                        <span class="highlight">generative AI.</span></P>
-                       <P> I believe in designing tools that empower people — not replace them — tools that 
-                        <span class="highlight">amplify</span> what humans do best: 
-                        imagine, create, and connect.</p>
-                    
-                        <p>Outside of tech, I keep an active fine <span class="highlight">art</span> practice and 
-                            love sharing what I've learned through <span class="highlight">teaching</span> and mentorship.
-                             </p>
-
-                            
-           
-                           
-            </blockquote>
+      <article class="project-entry anchor" id="lotr">
+        <div class="project-label">
+          <span class="project-year">2003</span>
+          <span class="project-cat">Feature Film · Weta Digital</span>
         </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Lord of the Rings: Return of the King</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-lotr">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/LOTR_01.jpeg" alt="Pelennor Fields — Army of the Dead composite" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/LOTR_02.jpeg" alt="Minas Tirith battle sequence" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/LOTR_03.jpeg" alt="Orc Army — bluescreen and miniature composite" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/LOTR_04.jpeg" alt="Lord of the Rings: Return of the King — VFX still" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Created roto-mattes to composite live action elements with miniature and CG elements across multiple battle sequences — including the Siege of Minas Tirith and the Pelennor Fields.</p>
+          <div class="project-tags"><span>Rotoscoping</span><span>Compositing</span><span>Matte Painting</span><span>VFX</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="riddick">
+        <div class="project-label">
+          <span class="project-year">2004</span>
+          <span class="project-cat">Feature Film</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">The Chronicles of Riddick</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-riddick">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Riddick001.png" alt="Necromonger Throne Room composite" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Riddick002.png" alt="Crematoria Prison Planet — roto composite" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Riddick003.png" alt="The Chronicles of Riddick — VFX still" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Created roto-mattes to composite live action elements with miniature and CG environments. Used RasRoto for tracking across complex multi-element shots.</p>
+          <div class="project-tags"><span>Rotoscoping</span><span>RasRoto Tracking</span><span>VFX Compositing</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor project-entry--hidden" id="textures">
+        <div class="project-label">
+          <span class="project-year">2014</span>
+          <span class="project-cat">3D Art · Texture &amp; Surface</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">3D Texture Painting</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-textures">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><span>Wood Grain — Photoshop &amp; Artrage</span></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><span>Stone Tile — PBR material channels</span></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><span>Henry Hugglemonster — Mudbox diffuse</span></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Photoshop and Artrage hand-painted textures with material channels created in B2M, including wood grain and stone tile surfaces for real-time environments. Also: Mudbox hand-painted diffuse texture mapping for a character from the children's TV show <em>Henry Hugglemonster</em>.</p>
+          <div class="project-tags"><span>Photoshop</span><span>Artrage</span><span>Mudbox</span><span>B2M</span><span>PBR</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor project-entry--hidden" id="characters">
+        <div class="project-label">
+          <span class="project-year">2015</span>
+          <span class="project-cat">Visual Development · Concept Art</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Visual Development &amp; Character Design</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-characters">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide portrait"><div class="slide-inner"><span>Doll — Base Design</span></div></div>
+            <div class="carousel-slide portrait"><div class="slide-inner"><span>Doll — Rabbit Hood Variant</span></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><span>Character Turnarounds — 360° reference sheets</span></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Character designs and concept art for a 3D animated short in VR, including hand-drawn reference turnarounds for 3D modeling of CG characters — establishing costume, proportion, and emotional register across full 360-degree rotations.</p>
+          <div class="project-tags"><span>Character Design</span><span>Concept Art</span><span>VR</span><span>Turnarounds</span></div>
+        </div>
+      </article>
     </section>
 
-    <section class="quote-section">
-        <div class="container">
-            <div class="quote-content">
-                "Design is a solution to a problem. Art is a question to a problem."
-                <div class="quote-author">— John Maeda</div>
-            </div>
+    <!-- ══ EXPERIENCE DESIGN ══ -->
+    <section class="project-section anchor" id="sec-ux">
+      <div class="section-eyebrow">Projects</div>
+      <h2 class="section-title">Experience Design</h2>
+
+      <article class="project-entry anchor" id="operator-x">
+        <div class="project-label">
+          <span class="project-year">2025</span>
+          <span class="project-cat">Generative AI · Cyber Warfighter Platform</span>
         </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Operator X</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-operator-x">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/OpX_01.png" alt="Operator X — product screen 1" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/OpX_02.png" alt="Operator X — product screen 2" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/OpX_03.png" alt="Operator X — product screen 3" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Product design for <em>Operator X</em>, a generative AI platform for the cyber warfighter — UX Research, Strategy and Design including design system development for both light and dark mode.</p>
+          <a class="press-link" href="https://www.sealingtech.com/software/operatorx/" target="_blank" rel="noopener noreferrer">Operator X — SealingTech ↗</a>
+          <div class="project-tags"><span>Product Design</span><span>Generative AI</span><span>Cybersecurity</span><span>Defensive Cyber</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="deloitte">
+        <div class="project-label">
+          <span class="project-year">2021–2024</span>
+          <span class="project-cat">Enterprise SaaS</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Deloitte</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-deloitte">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Deloitte_01_ESG.png" alt="Sustainability Data Hub — geographical dashboard (ESG)" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Deloitte_02_CLO.png" alt="Deloitte — CLO product screens" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Deloitte_03_Omnia.png" alt="Omnia Digital Assets — product screens" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Deloitte_04_Omnia.png" alt="Omnia Digital Assets — detail view" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>As a principal designer on the DesignOps team I led the design or redesign of many products across diverse sectors such as — Cybersecurity, Fintech, Sustainability, Accounting, and AI.</p>
+          <div class="project-tags"><span>Dashboard Design</span><span>Data Visualization</span><span>Sustainability</span><span>Cybersecurity</span><span>AI</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="mobile-apps">
+        <div class="project-label">
+          <span class="project-year">2019–2021</span>
+          <span class="project-cat">Mobile · Product Design</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Various Mobile Apps</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-mobile-apps">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Mobile_01_MomM.png" alt="Money on My Mind — mobile app" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Mobile_02_FB.png" alt="Farm Box — mobile app" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Mobile_03_DP.png" alt="DealerPolicy — mobile app" loading="eager"></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Mobile product design across social-impact fintech, agriculture, and insurance — end-to-end flows for phones and tablets, from onboarding to task completion.</p>
+          <div class="project-tags"><span>Mobile Design</span><span>UX</span><span>Fintech</span><span>Social Impact</span></div>
+        </div>
+      </article>
     </section>
 
-    <section id="logos" class="section">         
-        <div class="container">
-            <h2>I've worked for or with...</h2>
-            <P><HR></P>
-           
-                <div class="logo-grid">
-                    <div class="logo-row">
-                        <img src="images/nasa_jpl.svg" alt="NASA-JPL">
-                        <img src="images/Weta_digital.webp" alt="Weta Digital">
-                        <img src="images/Deloitte-logo-removebg-preview-300x158.svg" alt="Deloitte">
-                        <img src="images/Lockup-Vertical-Multi-01.svg" alt="Champlain College">
-                        <img src="images/terbium-labs-cybersecurity.svg" alt="Terbium Labs">
-                        <img src="images/Universal_Pictures_logo.svg.png" alt="Universal Pictures">
-                        <img src="images/Horizontal_Red_and_Grey_RGB_01_Logo.svg" alt="Dealer Policy">
-                        <img src="images/cvoeo-logo-2022.svg" alt="Champlain Valley Office of Economic Opportunity">
-                        <img src="images/images.svg" alt="Sealing Tech">
-
-                    </div>
-                </div>
-        </div>
+    <!-- ══ INFO ══ -->
+    <section class="info-page anchor" id="info">
+      <h2>Info</h2>
+      <div class="info-block">
+        <h3>About</h3>
+        <p>I am an artist, designer, and educator working across digital and material media. My practice explores the relationships between technology, perception, and human experience, often situated at the intersection of creative experimentation and critical inquiry.</p>
+        <p>With a professional background spanning visual effects, simulation &amp; 3D modeling at NASA-JPL, and product design in complex domains, I bring an applied perspective to my teaching and research. I am particularly interested in how systems—technical, visual, and cultural—shape the way we interpret and interact with the world.</p>
+        <p>My teaching centers on helping students develop both conceptual rigor and technical fluency, with an emphasis on digital imaging, user experience and emerging technologies. I encourage approaches that are exploratory, reflective, and grounded in human-centered and ethical considerations.</p>
+        <p>My studio practice operates in parallel with my academic work, informing a pedagogy that values experimentation, interdisciplinary thinking, and the integration of art and design as modes of research.</p>
+      </div>
+      <div class="info-block">
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-list-label">LinkedIn</span>
+            <a href="https://linkedin.com/in/siuan/" target="_blank" rel="noopener noreferrer">linkedin.com/in/siuan ↗</a>
+          </li>
+          <li>
+            <span class="contact-list-label">Email</span>
+            <a href="mailto:x@siuan.com">x@siuan.com</a>
+          </li>
+        </ul>
+      </div>
     </section>
 
-   
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Recent UX Projects</h2>
-           <P><HR></P>
-            <h3><strong>Note:</strong><BR>
-                Much of my work is confidential and protected under <span class="highlight">non-disclosure agreements</span>. Below is a brief look at select recent projects.
-                Click the images to view publicly available information about these products.<BR>&nbsp;</h3> 
+    <!-- ══ CV ══ -->
+    <section class="info-page anchor" id="cv">
+      <h2>CV</h2>
+      <div class="info-block">
+        <div class="cv-section-title">Research &amp; Teaching Interests</div>
+        <p class="cv-text">Digital Imaging; Studio Art; User Experience (UX/UI); Digital Photography; Graphic &amp; Web Design; Typography &amp; Branding; Motion &amp; Video; Information Architecture; Accessibility &amp; Inclusive Design; Digital Media &amp; Emerging Technologies (including AI in Creative Practice)</p>
 
-            <!--<section class="projects">
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="UX">UX</button>
-                    <button class="filter-btn" data-filter="Art">Art</button>
-                    <button class="filter-btn" data-filter="Film">Film</button>
-                </div>-->
-        
-                <div class="card-grid">
-                    
-                    <div class="card" data-category="UX">
-                        <A HREF="https://www.sealingtech.com/operatorx/" TARGET="_blank"><img src="images/OperatorX.svg" alt="Operator X"></A>
-                        <div class="card-content">
-                            <p class="year">2025</p>
-                            <h3>Generative AI for the Cyber Warfighter</h3>
-                        </div>
-                    </div>
+        <div class="cv-section-title">Education</div>
+        <div class="cv-row"><span class="cv-year">2017</span><span class="cv-item"><strong>MFA</strong>, Fine Art Media<br>National College of Art and Design, Ireland</span></div>
+        <div class="cv-row"><span class="cv-year">2002</span><span class="cv-item"><strong>BA</strong>, Philosophy &amp; Mathematics<br>University of California, Los Angeles</span></div>
+        <div class="cv-row"><span class="cv-year">2025–Present</span><span class="cv-item">Graduate Coursework in Teaching Methods (3 courses)<br>Vermont State University</span></div>
 
-                    <div class="card" data-category="UX">
-                        <A HREF="https://www2.deloitte.com/us/en/pages/deloitte-analytics/solutions/ethics-of-ai-framework.html" TARGET="_blank"><img src="images/DeloitteTAI.png" alt="Deloitte Trustworthy AI"></A>
-                        <div class="card-content">
-                           <p class="year">2024</p>
-                           <h3>AI technology-enabled assessments and guardrails
-                            </h3>
-                        </div>
-                    </div>
-                   
-                    <div class="card" data-category="UX">
-                        <A HREF="https://www2.deloitte.com/us/en/pages/audit/articles/impact-of-blockchain-in-accounting.html" TARGET="_blank"><img src="images/DeloitteCoinia.png" alt="Deloitte Coinia"></A>
-                        <div class="card-content">
-                            <p class="year">2023</p>
-                            <h3>Digital Asset Analytics Tool
-                            </h3>
-                        </div>
-                    </div>
+        <div class="cv-section-title">Academic Appointments</div>
+        <div class="cv-row"><span class="cv-year">2025–Present</span><span class="cv-item"><strong>Program Lead</strong>, Design &amp; Creative Media<br>Center for Technology, Essex</span></div>
+        <div class="cv-row"><span class="cv-year">2025–Present</span><span class="cv-item"><strong>Adjunct Professor</strong>, Design<br>Community College of Vermont</span></div>
+        <div class="cv-row"><span class="cv-year">2019–2021</span><span class="cv-item"><strong>Adjunct Professor</strong>, Game Program<br>Champlain College</span></div>
 
-           
+        <div class="cv-section-title">Industry Experience</div>
+        <div class="cv-row"><span class="cv-year">2024–Present</span><span class="cv-item"><strong>Independent Consultant</strong>, UX &amp; Product Design</span></div>
+        <div class="cv-row"><span class="cv-year">2021–2024</span><span class="cv-item"><strong>Principal Product Designer</strong><br>Deloitte</span></div>
+        <div class="cv-row"><span class="cv-year">2019–2021</span><span class="cv-item"><strong>Senior Product Designer</strong><br>Terbium Labs</span></div>
+        <div class="cv-row"><span class="cv-year">2003–2018</span><span class="cv-item"><strong>Visual Effects Artist and Motion Designer</strong><br>Various — including <em>Lord of the Rings: Return of the King</em> and <em>Chronicles of Riddick</em></span></div>
+        <div class="cv-row"><span class="cv-year">1997–2003</span><span class="cv-item"><strong>Development Engineer</strong><br>NASA Jet Propulsion Laboratory</span></div>
 
-                    <div class="card" data-category="UX">
-                        <A HREF="https://www.gartner.com/reviews/market/security-threat-intelligence-products-and-services/vendor/terbium-labs/product/matchlight" TARGET="_blank"><img src="images/Matchlight.svg" alt="Matchlight"></A>
-                        <div class="card-content">
-                            <p class="year">2019-2021</p>
-                            <h3>Digital risk protection (DRP) platform
-                            </h3>
-                        </div>
-                    </div>
+        <div class="cv-section-title">Selected Press</div>
+        <p class="cv-text">Aidan Dunne, &ldquo;Five Art Shows to See This Week,&rdquo; <em>The Irish Times</em>, 2018.</p>
+        <p class="cv-text">Aidan Dunne, review of NCAD MFA Graduate Exhibition, <em>The Irish Times</em>, 2017.</p>
+        <p class="cv-text">Jeffrey R. Wakefield, &ldquo;UVM Event Makes a Mash of Art and Technology,&rdquo; University of Vermont, 2018.</p>
 
-                    <!--<div class="card" data-category="Art">
-                        <img src="path/to/project-image.jpg" alt="Dreadful Imminency..">
-                        <div class="card-content">
-                            <h3>The Dreadful Imminency of Another</h3>
-                            <p class="category">Art</p>
-                            <p class="year">2017</p>
-                        </div>
-                    </div>-->
-
-                   <!-- <div class="card" data-category="Art">
-                        <img src="path/to/project-image.jpg" alt="Expectations">
-                        <div class="card-content">
-                            <h3>Expectations..</h3>
-                            <p class="category">Art</p>
-                            <p class="year">2017</p>
-                        </div>
-                    </div>-->
-                
-
-                <!--<div class="card" data-category="Film">
-                    <img src="path/to/project-image.jpg" alt="LOTR">
-                    <div class="card-content">
-                        <h3>Lord of the Rings: Return of the King</h3>
-                        <p class="category">Film</p>
-                        <p class="year">2004</p>
-                    </div>
-                </div>-->
-            
-
-            <!--<div class="card" data-category="Film">
-                <img src="path/to/project-image.jpg" alt="Riddick">
-                <div class="card-content">
-                    <h3>The Chronicles of Riddick</h3>
-                    <p class="category">Film</p>
-                    <p class="year">2004</p>
-                </div>
-            </div>-->
-        </div>
+        <div class="cv-section-title">Exhibitions &amp; Collections</div>
+        <div class="cv-subhead">Solo Exhibitions</div>
+        <p class="cv-text"><em>All That We See or Seem</em> — Castletown House Gallery, Kildare, Ireland, 2018</p>
+        <p class="cv-text"><em>I smiled, — for what had I to fear?</em> — Farmleigh Gallery, Dublin, Ireland, 2016</p>
+        <div class="cv-subhead">Selected Group Exhibitions</div>
+        <p class="cv-text">NCAD MFA graduate exhibition. NCAD Annex. Dublin, Ireland, 2017</p>
+        <p class="cv-text">Royal Hibernian Academy (RHA), Dublin, Ireland, 2015</p>
+        <div class="cv-subhead">Exhibition History</div>
+        <p class="cv-text">Exhibited internationally across the United States, Ireland, and New Zealand (2003–2018)</p>
+        <div class="cv-subhead">Collections</div>
+        <p class="cv-text">Work included in the National Collection of Ireland</p>
+      </div>
     </section>
 
+  </main>
+</div>
 
- 
-<!--
-    <section id="services" class="section">         
-        <div class="container">
-            <h2>Services</h2>
-            <p><hr></p>
-            
-            <div class="service-cards">
-              
-                <div class="service-card">
-                    <h3>Core Services</h3>
-                    <ul>
-                        <li>UX/UI Design</li>
-                        <li>User Research</li>
-                        <li>Wireframing & Prototyping</li>
-                        <li>Web & Mobile Design</li>
-                        <li>User Testing</li>
-                    </ul>
-                </div>
-                
-                
-                <div class="service-card featured">
-                    <h3>Advanced Services</h3>
-                    <ul>
-                        <li>AI Interface Design</li>
-                        <li>Experience Strategy</li>
-                        <li>Service Design</li>
-                        <li>Design Systems</li>
-                        <li>Workshop Facilitation</li>
-                    </ul>
-                </div>
-                
-              
-                <div class="service-card">
-                    <h3>Specialized Services</h3>
-                    <ul>
-                        <li>VR/AR Experience Design</li>
-                        <li>Design Leadership</li>
-                        <li>Design Ops Consulting</li>
-                        <li>Creative Direction</li>
-                        <li>Art & Installation Work</li>
-                    </ul>
-                </div>
-            </div>
+<script>
+/* ══ ACCORDION ══ */
+function initAccordion(root) {
+  root.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.target;
+      const body = document.getElementById(id);
+      const wasOpen = body.classList.contains('open');
+      root.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+      root.querySelectorAll('.acc-trigger').forEach(b => b.classList.remove('open'));
+      if (!wasOpen) { body.classList.add('open'); btn.classList.add('open'); }
+    });
+  });
+}
+initAccordion(document.getElementById('sidebarAccordion'));
 
-            <div class="logo-grid">
-                
-            </div>
+/* ══ NAV LINKS ══ */
+function setActiveLink(id, type) {
+  document.querySelectorAll('a[data-project], a[data-page]').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll(`a[data-${type}="${id}"]`).forEach(l => l.classList.add('active'));
+}
+function navigateHome() {
+  document.querySelectorAll('.info-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.project-section').forEach(s => s.style.display = '');
+  document.querySelectorAll('a[data-project], a[data-page]').forEach(l => l.classList.remove('active'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function navigateToProject(projectId) {
+  document.querySelectorAll('.info-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.project-section').forEach(s => s.style.display = '');
+  const el = document.getElementById(projectId);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setActiveLink(projectId, 'project');
+  closeDrawer();
+}
+function wireLinks(root) {
+  root.querySelectorAll('a[data-project]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      navigateToProject(a.dataset.project);
+    });
+  });
+  root.querySelectorAll('a[data-page]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const pageId = a.dataset.page;
+      document.querySelectorAll('.project-section').forEach(s => s.style.display = 'none');
+      document.querySelectorAll('.info-page').forEach(p => p.classList.remove('active'));
+      const pg = document.getElementById(pageId);
+      if (pg) { pg.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      setActiveLink(pageId, 'page');
+      closeDrawer();
+    });
+  });
+}
+function initProjectNextLinks() {
+  const entries = Array.from(document.querySelectorAll('.project-entry[id]:not(.project-entry--hidden)'));
+  const first = entries[0];
+  entries.forEach((entry, i) => {
+    const link = entry.querySelector('a.project-next');
+    if (!link || !first) return;
+    const isLast = i === entries.length - 1;
+    const target = isLast ? first : entries[i + 1];
+    link.textContent = isLast ? 'First Project' : 'Next Project';
+    link.href = '#' + target.id;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      navigateToProject(target.id);
+    });
+  });
+}
+wireLinks(document.querySelector('aside'));
+wireLinks(document.getElementById('sidebarFooterLinks'));
+initProjectNextLinks();
+document.getElementById('sidebarHome').addEventListener('click', e => {
+  e.preventDefault();
+  navigateHome();
+});
 
-            <p>Email: your.email@example.com</p>
-        </div>
-    </section>
--->
+/* ══ MOBILE DRAWER ══ */
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('drawer');
+const overlay = document.getElementById('drawerOverlay');
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <P><HR></P>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/siuan" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/siuanm" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:x@siuan.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+// Build drawer content
+drawer.innerHTML = `<div style="padding:20px 0">
+  <div id="drawerAcc">
+    <div class="acc-group">
+      <button class="acc-trigger" data-target="dacc-art"><span class="acc-label">Digital Media Practice</span><span class="acc-arrow"></span></button>
+      <div class="acc-body" id="dacc-art">
+        <a href="#" data-project="dreadful">The Dreadful Imminency</a>
+        <a href="#" data-project="smiled">I smiled, —</a>
+        <a href="#" data-project="ferment">All Physics In A Ferment</a>
+      </div>
+    </div>
+    <div class="acc-group">
+      <button class="acc-trigger" data-target="dacc-vfx"><span class="acc-label">Moving Image</span><span class="acc-arrow"></span></button>
+      <div class="acc-body" id="dacc-vfx">
+        <a href="#" data-project="lotr">Lord of the Rings</a>
+        <a href="#" data-project="riddick">Chronicles of Riddick</a>
+      </div>
+    </div>
+    <div class="acc-group">
+      <button class="acc-trigger" data-target="dacc-ux"><span class="acc-label">Experience Design</span><span class="acc-arrow"></span></button>
+      <div class="acc-body" id="dacc-ux">
+        <a href="#" data-project="operator-x">Operator X</a>
+        <a href="#" data-project="deloitte">Deloitte</a>
+        <a href="#" data-project="mobile-apps">Various Mobile Apps</a>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-footer-links" style="margin-top:8px">
+    <a href="#" data-page="info">Info</a>
+    <a href="#" data-page="cv">CV</a>
+  </div>
+</div>`;
+initAccordion(document.getElementById('drawerAcc'));
+wireLinks(drawer);
 
+function openDrawer()  { hamburger.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+function closeDrawer() { hamburger.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+hamburger.addEventListener('click', () => drawer.classList.contains('open') ? closeDrawer() : openDrawer());
+overlay.addEventListener('click', closeDrawer);
+
+/* ══ CAROUSELS ══ */
+document.querySelectorAll('.carousel:not(.single)').forEach(car => {
+  const track = car.querySelector('.carousel-track');
+  const slides = car.querySelectorAll('.carousel-slide');
+  const dots = car.querySelector('.carousel-dots');
+  const prev = car.querySelector('.carousel-btn.prev');
+  const next = car.querySelector('.carousel-btn.next');
+  let cur = 0;
+  const n = slides.length;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.setAttribute('aria-label', `Slide ${i+1}`);
+    if (i===0) d.classList.add('active');
+    d.addEventListener('click', () => go(i));
+    dots.appendChild(d);
+  });
+
+  function go(i) {
+    cur = ((i % n) + n) % n;
+    track.style.transform = `translateX(-${cur*100}%)`;
+    dots.querySelectorAll('button').forEach((d,j) => d.classList.toggle('active', j===cur));
+  }
+
+  prev.addEventListener('click', () => go(cur-1));
+  next.addEventListener('click', () => go(cur+1));
+
+  let sx = 0;
+  car.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+  car.addEventListener('touchend',   e => { const dx = e.changedTouches[0].clientX - sx; if(Math.abs(dx)>40) go(cur+(dx<0?1:-1)); });
+});
+
+/* ══ FADE IN ══ */
+const fadeIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); fadeIO.unobserve(e.target); }});
+}, {threshold:0.06});
+document.querySelectorAll('.project-entry:not(.project-entry--hidden)').forEach(el => fadeIO.observe(el));
+
+/* ══ ACTIVE LINK ON SCROLL ══ */
+const scrollIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const id = e.target.id;
+      document.querySelectorAll('a[data-project]').forEach(l => l.classList.toggle('active', l.dataset.project===id));
+    }
+  });
+}, {rootMargin:'-20% 0px -65% 0px'});
+document.querySelectorAll('.project-entry[id]:not(.project-entry--hidden)').forEach(p => scrollIO.observe(p));
+</script>
 </body>
-</html> 
+</html>
