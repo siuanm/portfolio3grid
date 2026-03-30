@@ -404,7 +404,21 @@ main {
 .carousel-slide.portrait .slide-inner { aspect-ratio: 3/4; }
 .carousel-slide.square .slide-inner   { aspect-ratio: 1/1; }
 
-.slide-inner:has(img) { padding: 0; }
+.slide-inner:has(img),
+.slide-inner:has(video) { padding: 0; }
+
+/* Image / video slides: frame matches viewport height; full media visible (letterboxing as needed) */
+.carousel-slide .slide-inner:has(img),
+.carousel-slide .slide-inner:has(video),
+.carousel-slide.portrait .slide-inner:has(img),
+.carousel-slide.portrait .slide-inner:has(video),
+.carousel-slide.square .slide-inner:has(img),
+.carousel-slide.square .slide-inner:has(video) {
+  aspect-ratio: unset;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+}
 
 /* real images */
 .slide-inner img {
@@ -412,14 +426,28 @@ main {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+.slide-inner video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 #car-dreadful {
   max-width: min(100%, 85vh);
   margin-inline: auto;
 }
+/* Dreadful: keep 1:1 slides (overrides viewport-height rule on square + img) */
+#car-dreadful .carousel-slide.square .slide-inner:has(img) {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  width: 100%;
+}
 #car-dreadful .slide-inner img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 #car-smiled {
   max-width: min(100%, calc(85vh * 3 / 4));
@@ -570,6 +598,12 @@ main {
   line-height: 1.9;
   margin-bottom: 8px;
 }
+#teaching-statement .info-block p {
+  margin-bottom: 1.1rem;
+}
+#teaching-statement .info-block p:last-child {
+  margin-bottom: 0;
+}
 
 .cv-section-title {
   font-size: 0.62rem;
@@ -703,15 +737,16 @@ main {
           <button class="acc-trigger" data-target="acc-student"><span class="acc-label">Student Work</span><span class="acc-arrow"></span></button>
           <div class="acc-body" id="acc-student">
             <a href="#" data-project="intro-game-art">Introduction to Game Art</a>
-            <a href="#" data-project="advanced-ux-seminar">Advanced Seminar in UX Design</a>
             <a href="#" data-project="intro-adobe-cc">Introduction to Adobe Creative Cloud</a>
             <a href="#" data-project="graphic-design-1">Graphic Design 1</a>
+            <a href="#" data-project="intro-motion-design">Intro to Motion Design</a>
           </div>
         </div>
       </div>
       <div class="sidebar-footer-links" id="sidebarFooterLinks">
         <a href="#" data-page="info">Info</a>
         <a href="#" data-page="cv">CV</a>
+        <a href="#" data-page="teaching-statement">Teaching Statement</a>
       </div>
     </div>
   </aside>
@@ -1021,31 +1056,8 @@ main {
           <div class="carousel-dots"></div>
         </div>
         <div class="project-statement">
-          <p>A selection of Robot Designs using Adobe Illustrator and Digital Still Life Paintings using Adobe Photoshop from my Introduction to Game Art class at Champlain College.</p>
+          <p>Assignment 1: Robot Design in Illustrator &nbsp;::&nbsp; Assignment 2: Still Life Digital Painting in Photoshop</p>
           <div class="project-tags"><span>Teaching</span><span>Game Art</span><span>Student Work</span></div>
-        </div>
-      </article>
-
-      <article class="project-entry anchor" id="advanced-ux-seminar">
-        <div class="project-label">
-          <span class="project-year">Teaching</span>
-          <span class="project-cat">Student Work</span>
-        </div>
-        <div class="project-title-row">
-          <h3 class="project-title">Advanced Seminar in UX Design</h3>
-          <a class="project-next" href="#">Next Project</a>
-        </div>
-        <div class="carousel single" id="car-advanced-ux-seminar">
-          <div class="carousel-track-wrap"><div class="carousel-track">
-            <div class="carousel-slide"><div class="slide-inner"><span>Student work — Advanced Seminar in UX Design</span></div></div>
-          </div></div>
-          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
-          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
-          <div class="carousel-dots"></div>
-        </div>
-        <div class="project-statement">
-          <p>Course overview and selected student outcomes for Advanced Seminar in UX Design — imagery and project descriptions to follow.</p>
-          <div class="project-tags"><span>Teaching</span><span>UX</span><span>Student Work</span></div>
         </div>
       </article>
 
@@ -1058,16 +1070,21 @@ main {
           <h3 class="project-title">Introduction to Adobe Creative Cloud</h3>
           <a class="project-next" href="#">Next Project</a>
         </div>
-        <div class="carousel single" id="car-intro-adobe-cc">
+        <div class="carousel" id="car-intro-adobe-cc">
           <div class="carousel-track-wrap"><div class="carousel-track">
-            <div class="carousel-slide"><div class="slide-inner"><span>Student work — Introduction to Adobe Creative Cloud</span></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_01.png" alt="Introduction to Adobe Creative Cloud — student work 1" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_02.png" alt="Introduction to Adobe Creative Cloud — student work 2" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_03.png" alt="Introduction to Adobe Creative Cloud — student work 3" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_04.png" alt="Introduction to Adobe Creative Cloud — student work 4" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_05.png" alt="Introduction to Adobe Creative Cloud — student work 5" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/AdobeCC_06.png" alt="Introduction to Adobe Creative Cloud — student work 6" loading="eager"></div></div>
           </div></div>
           <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
           <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
           <div class="carousel-dots"></div>
         </div>
         <div class="project-statement">
-          <p>Course overview and selected student outcomes for Introduction to Adobe Creative Cloud — imagery and project descriptions to follow.</p>
+          <p>Assignment 1: T-shirt design in Illustrator &nbsp;::&nbsp; Assignment 2: Tribute Posters in Photoshop</p>
           <div class="project-tags"><span>Teaching</span><span>Adobe CC</span><span>Student Work</span></div>
         </div>
       </article>
@@ -1081,17 +1098,48 @@ main {
           <h3 class="project-title">Graphic Design 1</h3>
           <a class="project-next" href="#">Next Project</a>
         </div>
-        <div class="carousel single" id="car-graphic-design-1">
+        <div class="carousel" id="car-graphic-design-1">
           <div class="carousel-track-wrap"><div class="carousel-track">
-            <div class="carousel-slide"><div class="slide-inner"><span>Student work — Graphic Design 1</span></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/GraphicDesign1_01.jpg" alt="Graphic Design 1 — student work 1" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/GraphicDesign1_02.png" alt="Graphic Design 1 — student work 2" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/GraphicDesign1_03.png" alt="Graphic Design 1 — student work 3" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/GraphicDesign1_04.png" alt="Graphic Design 1 — student work 4" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/GraphicDesign1_05.png" alt="Graphic Design 1 — student work 5" loading="eager"></div></div>
           </div></div>
           <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
           <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
           <div class="carousel-dots"></div>
         </div>
         <div class="project-statement">
-          <p>Course overview and selected student outcomes for Graphic Design 1 — imagery and project descriptions to follow.</p>
+          <p>Assignment 1: SkillsUSA in Illustrator &nbsp;::&nbsp; Assignment 2: Concert Poster &nbsp;::&nbsp; Assignment 3: Package Design</p>
           <div class="project-tags"><span>Teaching</span><span>Graphic Design</span><span>Student Work</span></div>
+        </div>
+      </article>
+
+      <article class="project-entry anchor" id="intro-motion-design">
+        <div class="project-label">
+          <span class="project-year">Teaching</span>
+          <span class="project-cat">Student Work</span>
+        </div>
+        <div class="project-title-row">
+          <h3 class="project-title">Intro to Motion Design</h3>
+          <a class="project-next" href="#">Next Project</a>
+        </div>
+        <div class="carousel" id="car-intro-motion-design">
+          <div class="carousel-track-wrap"><div class="carousel-track">
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Motion1_01.gif" alt="Intro to Motion Design — student work 1" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Motion1_02.gif" alt="Intro to Motion Design — student work 2" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Motion1_03.gif" alt="Intro to Motion Design — student work 3" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><img src="images/Motion1_04.gif" alt="Intro to Motion Design — student work 4" loading="eager"></div></div>
+            <div class="carousel-slide"><div class="slide-inner"><video src="images/Motion1_05.mp4" playsinline controls preload="metadata" aria-label="Intro to Motion Design — student work 5"></video></div></div>
+          </div></div>
+          <button class="carousel-btn prev" aria-label="Previous"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9,2 4,7 9,12"/></svg></button>
+          <button class="carousel-btn next" aria-label="Next"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="5,2 10,7 5,12"/></svg></button>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="project-statement">
+          <p>Assignment 1: Animated GIF in Photoshop &nbsp;::&nbsp; Assignment 2: Keyframe Animation in After Effects</p>
+          <div class="project-tags"><span>Teaching</span><span>Motion</span><span>Student Work</span></div>
         </div>
       </article>
     </section>
@@ -1161,6 +1209,20 @@ main {
         <p class="cv-text">Exhibited internationally across the United States, Ireland, and New Zealand (2003–2018)</p>
         <div class="cv-subhead">Collections</div>
         <p class="cv-text">Work included in the National Collection of Ireland</p>
+      </div>
+    </section>
+
+    <!-- ══ TEACHING STATEMENT ══ -->
+    <section class="info-page anchor" id="teaching-statement">
+      <h2>Teaching Statement</h2>
+      <div class="info-block">
+        <p>My teaching is grounded in a simple goal: to spark curiosity. At a time when information is everywhere, I see my role less as delivering content and more as creating the conditions for engagement. I want students to develop the interest, confidence, and critical thinking skills to continue learning on their own, and to feel a sense of ownership over that process.</p>
+        <p>This perspective is shaped by my background in UX design, where understanding human needs is central. I bring that same mindset into the classroom by designing learning experiences around students and their perspectives, strengths, and goals. Getting to know students as individuals is a necessary starting point. When that foundation of trust is in place, students are more willing to take risks, participate in critique, and push their thinking beyond what feels comfortable.</p>
+        <p>From there, I focus on structure. I design courses with scaffolding in mind, creating multiple entry points while guiding students toward greater complexity and independence. Frameworks such as Universal Design for Learning and Bloom&rsquo;s Taxonomy inform how I build assignments and assessments, but I use them as flexible guides rather than rigid systems. Students engage in different ways, and they should have different ways to demonstrate what they know. This approach allows me to support a wide range of learners, including differences in cultural background, neurodiversity, prior experience, and individual interests.</p>
+        <p>At the same time, I want the classroom to feel active and alive. Creative media education should be engaging, and ideally, enjoyable. I want students to come to class because they are invested in the work, not simply because they have to be there. Whether projects are oriented toward professional application or grounded in critical art practice, I emphasize experimentation, iteration, and a willingness to explore alongside technical skill-building. The goal is not just competency, but momentum. Students should leave with the sense that they want to keep going.</p>
+        <p>That kind of environment depends on a real commitment to equity and access. I am especially interested in supporting students from economically diverse backgrounds and in helping to bridge gaps in access to creative and technical education. I work to create a space that is welcoming and supportive, where students feel that they belong and have what they need to succeed.</p>
+        <p>My approach is informed by a range of experiences across different learning environments, including community college study, advanced coursework at UCLA, graduate study in Ireland, formal educator training in Vermont, and ongoing participation in industry workshops and professional development. Moving between these contexts has reinforced my belief that there is no single way to teach effectively. I draw from multiple approaches and adjust based on the students in front of me and the goals of the course. My experience teaching both emerging learners and industry professionals, including my role as Advisory Faculty at Deloitte where I earned Facilitator Excellence certification, has further shaped how I design interactive, engaging learning experiences.</p>
+        <p>I think of teaching as a form of design practice. It is iterative, empathetic, and collaborative. My goal is to create a classroom where students feel challenged but supported, and where they leave not only with new skills, but with a lasting sense of curiosity, confidence, and creative possibility.</p>
       </div>
     </section>
 
@@ -1281,15 +1343,16 @@ drawer.innerHTML = `<div style="padding:20px 0">
       <button class="acc-trigger" data-target="dacc-student"><span class="acc-label">Student Work</span><span class="acc-arrow"></span></button>
       <div class="acc-body" id="dacc-student">
         <a href="#" data-project="intro-game-art">Introduction to Game Art</a>
-        <a href="#" data-project="advanced-ux-seminar">Advanced Seminar in UX Design</a>
         <a href="#" data-project="intro-adobe-cc">Introduction to Adobe Creative Cloud</a>
         <a href="#" data-project="graphic-design-1">Graphic Design 1</a>
+        <a href="#" data-project="intro-motion-design">Intro to Motion Design</a>
       </div>
     </div>
   </div>
   <div class="sidebar-footer-links" style="margin-top:8px">
     <a href="#" data-page="info">Info</a>
     <a href="#" data-page="cv">CV</a>
+    <a href="#" data-page="teaching-statement">Teaching Statement</a>
   </div>
 </div>`;
 initAccordion(document.getElementById('drawerAcc'));
