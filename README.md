@@ -1,3 +1,3 @@
-# Siuan McGahan | Artist. Designer. Educator
+# Siuan McGahan | Product Designer. Educator
 
 Portfolio 
