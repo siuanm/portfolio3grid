@@ -176,17 +176,26 @@ body {
   color: var(--color-ink);
 }
 
-.linkedin-chip {
+.icon-chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 26px;
   height: 26px;
-  background: var(--color-accent-2);
-  color: #fff;
-  border-radius: 4px;
+  color: var(--color-accent-2);
 }
-.linkedin-chip svg { width: 14px; height: 14px; fill: #fff; }
+
+.icon-chip img {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* LinkedIn artwork fills more of its viewBox than the mail icon — scale to match */
+.icon-chip img[src="logo-linkedin.svg"] {
+  width: 20px;
+  height: 20px;
+}
 
 @media (max-width: 640px) {
   .main-nav-links { display: none; }
@@ -220,6 +229,151 @@ body {
   margin: 0;
   width: 100%;
   white-space: nowrap;
+}
+
+.hn-s,
+.hn-i,
+.hn-rest,
+.hn-ibody,
+.hn-idot {
+  display: inline-block;
+}
+
+.hn-i {
+  position: relative;
+  width: 0;
+  overflow: visible;
+  vertical-align: baseline;
+}
+
+.hn-ibody {
+  opacity: 0;
+}
+
+.hn-idot {
+  position: absolute;
+  left: 0.02em;
+  bottom: 0.02em;
+  line-height: 1;
+  opacity: 1;
+  transform-origin: center bottom;
+  will-change: transform, left, bottom;
+}
+
+.hn-rest {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+/* Play state — full name reveal */
+.hero-name.is-playing .hn-i {
+  animation: hn-i-reveal 0.55s 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-name.is-playing .hn-ibody {
+  animation: hn-fade-in 0.35s 0.95s ease forwards;
+}
+
+.hero-name.is-playing .hn-idot {
+  animation: hn-idot-fly 1.15s 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.hero-name.is-playing .hn-rest {
+  animation: hn-rest-reveal 0.9s 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-name.is-complete .hn-i,
+.hero-name.is-complete .hn-ibody,
+.hero-name.is-complete .hn-rest {
+  width: auto;
+  max-width: none;
+  opacity: 1;
+  overflow: visible;
+}
+
+.hero-name.is-complete .hn-idot {
+  left: 0.28em;
+  bottom: 0.72em;
+  transform: scale(0.38);
+}
+
+@keyframes hn-i-reveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 0.35em;
+  }
+}
+
+@keyframes hn-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hn-idot-fly {
+  0% {
+    left: 0.02em;
+    bottom: 0.02em;
+    transform: scale(1) translateY(0);
+  }
+  35% {
+    left: 0.12em;
+    bottom: 0.95em;
+    transform: scale(0.85) translateY(0);
+  }
+  55% {
+    left: 0.22em;
+    bottom: 0.55em;
+    transform: scale(0.5) translateY(0);
+  }
+  75% {
+    left: 0.26em;
+    bottom: 0.82em;
+    transform: scale(0.4) translateY(0);
+  }
+  100% {
+    left: 0.28em;
+    bottom: 0.72em;
+    transform: scale(0.38) translateY(0);
+  }
+}
+
+@keyframes hn-rest-reveal {
+  from {
+    max-width: 0;
+    opacity: 0;
+  }
+  to {
+    max-width: 20em;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name.is-playing .hn-i,
+  .hero-name.is-playing .hn-ibody,
+  .hero-name.is-playing .hn-idot,
+  .hero-name.is-playing .hn-rest {
+    animation: none;
+  }
+
+  .hero-name .hn-i,
+  .hero-name .hn-ibody,
+  .hero-name .hn-rest {
+    width: auto;
+    max-width: none;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .hero-name .hn-idot {
+    left: 0.28em;
+    bottom: 0.72em;
+    transform: scale(0.38);
+  }
 }
 
 .hero-role {
@@ -373,9 +527,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: fit-content;
-  margin: 0 auto;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
   padding: 0;
 }
 
@@ -391,7 +545,7 @@ body {
   font-family: var(--font-body);
   font-size: 0.98rem;
   color: var(--color-body);
-  width: 7.5rem;
+  width: 100%;
 }
 
 .about-likes-list li {
@@ -463,10 +617,10 @@ body {
 .project-nav {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 24px var(--side-pad);
+  padding: 24px var(--side-pad) 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 16px;
 }
 
@@ -479,8 +633,8 @@ body {
 .project-nav-link:hover { text-decoration: underline; }
 
 .project-header {
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding-top: 16px;
+  padding-bottom: 40px;
 }
 
 .project-title-xl {
@@ -502,13 +656,26 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--color-body);
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-rule);
+  padding-bottom: 0;
+  border-bottom: none;
   margin-bottom: 0;
 }
 
 @media (max-width: 900px) {
   .project-title-xl { margin-bottom: 32px; }
+}
+
+.project-meta-block {
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.project-meta-block .meta-table {
+  margin-bottom: 24px;
+}
+
+.project-meta-block .media-fallback:first-of-type {
+  margin-top: 0;
 }
 
 .meta-table {
@@ -617,6 +784,10 @@ body {
   font-family: var(--font-body);
   font-size: 1rem;
   color: var(--color-ink);
+}
+
+.media-fallback + .media-fallback {
+  margin-top: 8px;
 }
 
 .media-fallback .link-arrow {

@@ -11,12 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+  <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
 </head>
 <body>
 
   <!-- ================= HEADER ================= -->
   <header class="site-header">
-    <a href="index.html#top" class="logo">SM</a>
+    <a href="index.html#top" class="logo">S.</a>
 
     <nav class="main-nav" aria-label="Primary">
       <ul class="main-nav-links">
@@ -24,22 +26,17 @@
         <li><a href="index.html#about">about</a></li>
         <li><a href="resume.pdf">resume</a></li>
       </ul>
-      <a class="linkedin-chip" href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.75h4.5V23h-4.5V8.75zM8.5 8.75h4.31v1.95h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.5v-6.9c0-1.64-.03-3.76-2.29-3.76-2.29 0-2.64 1.79-2.64 3.64V23H8.5V8.75z"/></svg>
+      <a class="icon-chip" href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <img src="logo-linkedin.svg" alt="" />
       </a>
       <button class="nav-toggle" aria-label="Open menu">menu</button>
     </nav>
   </header>
 
-  <hr class="rule" />
-
   <!-- ================= BACK LINK ================= -->
-  <nav class="project-nav" aria-label="Project navigation">
-    <a class="project-nav-link" href="project-matchlight.html">&larr; see: Matchlight</a>
-    <a class="project-nav-link" href="project-coinia.html">see: Coinia &rarr;</a>
+  <nav class="project-nav" aria-label="Breadcrumb">
+    <a class="project-nav-link" href="index.html#projects">&larr; Back</a>
   </nav>
-
-  <hr class="rule" />
 
   <!-- ================= PROJECT HEADER ================= -->
   <section class="project-header section">
@@ -50,33 +47,6 @@
 
       <div class="col-7 col-md-12 project-summary">
         <p class="project-desc">A generative AI platform for the cyber warfighter. Built for offline research, collaboration and SIEM integration.</p>
-
-        <dl class="meta-table">
-          <div class="meta-row">
-            <dt>Client</dt>
-            <dd>SealingTech</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Industry</dt>
-            <dd>Cybersecurity / Government</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Year / Duration</dt>
-            <dd>2025 / 8 months</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Role</dt>
-            <dd>UX Consultant</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Deliverables</dt>
-            <dd>Discovery Design Sprint, Competitive Analysis, Personas, Journey Map, Heuristic Analysis, Wireframes, Information Architecture Redesign, User Flows, Mock&#8209;ups, Usability Testing, Onboarding Tour.</dd>
-          </div>
-          <div class="meta-row">
-            <dt>Note</dt>
-            <dd>Work performed under NDA.<br />Watch video for product overview.</dd>
-          </div>
-        </dl>
       </div>
     </div>
   </section>
@@ -93,17 +63,44 @@
       <img src="assets/operator-x-video-poster.jpg" alt="Operator X product overview video thumbnail" />
       <span class="hero-media-play" aria-hidden="true">▶</span>
     </a>
+  </section>
+
+  <!-- ================= PROJECT META ================= -->
+  <section class="project-meta-block section">
+    <dl class="meta-table">
+      <div class="meta-row">
+        <dt>Client</dt>
+        <dd>SealingTech</dd>
+      </div>
+      <div class="meta-row">
+        <dt>Industry</dt>
+        <dd>Cybersecurity / Government</dd>
+      </div>
+      <div class="meta-row">
+        <dt>Year / Duration</dt>
+        <dd>2025 / 8 months</dd>
+      </div>
+      <div class="meta-row">
+        <dt>Role</dt>
+        <dd>UX Consultant</dd>
+      </div>
+      <div class="meta-row">
+        <dt>Deliverables</dt>
+        <dd>Discovery Design Sprint, Competitive Analysis, Personas, Journey Map, Heuristic Analysis, Wireframes, Information Architecture Redesign, User Flows, Mock&#8209;ups, Usability Testing, Onboarding Tour.</dd>
+      </div>
+      <div class="meta-row">
+        <dt>Note</dt>
+        <dd>Work performed under NDA.<br />Watch video for product overview.</dd>
+      </div>
+    </dl>
     <p class="media-fallback">
       Prefer to watch on YouTube?
       <a class="link-arrow" href="https://youtu.be/moNoI1Oh1Y8" target="_blank" rel="noopener noreferrer">Open video &rarr;</a>
     </p>
-  </section>
-
-  <hr class="rule" />
-
-  <!-- ================= CTA ================= -->
-  <section class="statement project-cta">
-    <p>Want to know how I improve design on a project like OperatorX? <a class="link-arrow" href="mailto:x@siuan.com">let's talk &rarr;</a></p>
+    <p class="media-fallback">
+      Want to know how I improve design on a project like OperatorX?
+      <a class="link-arrow" href="mailto:x@siuan.com">let's talk &rarr;</a>
+    </p>
   </section>
 
   <hr class="rule" />
@@ -119,9 +116,11 @@
     <span class="footer-copy">&copy; 2026 Siuan McGahan</span>
 
     <div class="footer-meta">
-      <a href="mailto:x@siuan.com">x@siuan.com</a>
-      <a class="linkedin-chip" href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 8.75h4.5V23h-4.5V8.75zM8.5 8.75h4.31v1.95h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.5v-6.9c0-1.64-.03-3.76-2.29-3.76-2.29 0-2.64 1.79-2.64 3.64V23H8.5V8.75z"/></svg>
+      <a class="icon-chip" href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <img src="logo-linkedin.svg" alt="" />
+      </a>
+      <a class="icon-chip" href="mailto:x@siuan.com" aria-label="Email">
+        <img src="mail.svg" alt="" />
       </a>
     </div>
   </footer>
